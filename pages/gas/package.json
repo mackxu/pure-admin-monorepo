@@ -1,0 +1,22 @@
+{
+  "name": "@page/gas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/router/index.ts",
+  "imports": {
+    "#*": ["./src/*"]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "xuyadong",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "dependencies": {
+    "@pkg/zzz": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.18"
+  }
+}
