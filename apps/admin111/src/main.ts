@@ -1,5 +1,5 @@
 import App from './App.vue';
-import router from './router';
+import router from './router'; // 获得路由实例
 import { setupStore } from '@/store';
 import { getPlatformConfig } from './config';
 import { MotionPlugin } from '@vueuse/motion';

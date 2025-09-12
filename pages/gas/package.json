@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/router/index.ts",
+  "exports": {
+    "./views/*": "./src/views/*/index.vue",
+    ".": "./src/router/index.ts"
+  },
   "imports": {
-    "#*": ["./src/*"]
+    "#*": [
+      "./src/*"
+    ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,10 +19,10 @@
   "author": "xuyadong",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
-  "dependencies": {
-    "@pkg/zzz": "workspace:*"
-  },
   "peerDependencies": {
     "vue": "^3.5.18"
+  },
+  "dependencies": {
+    "@core/router": "workspace:*"
   }
 }

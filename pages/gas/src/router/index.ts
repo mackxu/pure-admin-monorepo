@@ -1,12 +1,9 @@
-import { $t } from '@pkg/zzz/plugins/i18n';
-
 export default {
   path: '/bar',
-  component: () => import('../views/bar/index.vue'),
+  component: () => import('#views/bar/index.vue'),
   meta: {
     icon: 'ri/information-line',
-    // showLink: false,
-    title: $t('menus.pureAbnormal'),
+    title: 'bar',
     rank: 9
   }
 } satisfies RouteConfigsTable;

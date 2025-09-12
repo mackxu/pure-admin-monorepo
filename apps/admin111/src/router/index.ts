@@ -18,24 +18,21 @@ import {
   getTopMenu,
   initRouter,
   isOneOfArray,
-  getHistoryMode,
   findRouteByPath,
   handleAliveRoute,
   formatTwoStageRoutes,
   formatFlatteningRoutes
 } from './utils';
-import {
-  type Router,
-  type RouteRecordRaw,
-  type RouteComponent,
-  createRouter
-} from 'vue-router';
+import type { Router, RouteRecordRaw, RouteComponent } from 'vue-router';
 import {
   type DataInfo,
   userKey,
   removeToken,
   multipleTabsKey
 } from '@/utils/auth';
+
+import { initRouterInstance } from '@core/router';
+import gasRouters from '@page/gas';
 
 /** 自动导入全部静态路由，无需再手动引入！匹配 src/router/modules 目录（任何嵌套级别）中具有 .ts 扩展名的所有文件，除了 remaining.ts 文件
  * 如何匹配所有文件请看：https://github.com/mrmlnc/fast-glob#basic-syntax
@@ -54,6 +51,8 @@ const routes = [];
 Object.keys(modules).forEach(key => {
   routes.push(modules[key].default);
 });
+
+routes.push(gasRouters);
 
 /** 导出处理后的静态路由（三级及以上的路由全部拍成二级） */
 export const constantRoutes: Array<RouteRecordRaw> = formatTwoStageRoutes(
@@ -74,24 +73,27 @@ export const remainingPaths = Object.keys(remainingRouter).map(v => {
 });
 
 /** 创建路由实例 */
-export const router: Router = createRouter({
-  history: getHistoryMode(import.meta.env.VITE_ROUTER_HISTORY),
-  routes: constantRoutes.concat(...(remainingRouter as any)),
-  strict: true,
-  scrollBehavior(to, from, savedPosition) {
-    return new Promise(resolve => {
-      if (savedPosition) {
-        return savedPosition;
-      } else {
-        if (from.meta.saveSrollTop) {
-          const top: number =
-            document.documentElement.scrollTop || document.body.scrollTop;
-          resolve({ left: 0, top });
-        }
-      }
-    });
-  }
-});
+export const router = initRouterInstance(
+  constantRoutes.concat(...(remainingRouter as any))
+);
+// export const router: Router = createRouter({
+//   history: createWebHashHistory(''),
+//   routes: constantRoutes.concat(...(remainingRouter as any)),
+//   strict: true,
+//   scrollBehavior(to, from, savedPosition) {
+//     return new Promise(resolve => {
+//       if (savedPosition) {
+//         return savedPosition;
+//       } else {
+//         if (from.meta.saveSrollTop) {
+//           const top: number =
+//             document.documentElement.scrollTop || document.body.scrollTop;
+//           resolve({ left: 0, top });
+//         }
+//       }
+//     });
+//   }
+// });
 
 /** 重置路由 */
 export function resetRouter() {
@@ -111,6 +113,7 @@ const whiteList = ['/login'];
 const { VITE_HIDE_HOME } = import.meta.env;
 
 router.beforeEach((to: ToRouteType, _from, next) => {
+  debugger;
   if (to.meta?.keepAlive) {
     handleAliveRoute(to, 'add');
     // 页面整体刷新和点击标签页刷新
