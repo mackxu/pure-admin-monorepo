@@ -4,6 +4,6 @@
 export default {
   bracketSpacing: true,
   singleQuote: true,
-  arrowParens: "avoid",
-  trailingComma: "none"
+  arrowParens: 'avoid',
+  trailingComma: 'es5'
 };

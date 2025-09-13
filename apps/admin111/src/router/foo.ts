@@ -6,5 +6,5 @@ export default {
     title: 'foo test',
     rank: 0
   },
-  component: () => import('@page/gas/views/foo')
+  component: () => import('@page/gas/views/foo/index.vue')
 } satisfies RouteConfigsTable;

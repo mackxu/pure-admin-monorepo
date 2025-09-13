@@ -1,16 +1,10 @@
 {
-  "name": "@page/gas",
+  "name": "@repo/components",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "exports": {
     "./*": "./src/*"
-  },
-  "imports": {
-    "#*": [
-      "./src/*"
-    ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,9 +15,5 @@
   "packageManager": "pnpm@10.14.0",
   "peerDependencies": {
     "vue": "^3.5.18"
-  },
-  "dependencies": {
-    "@core/router": "workspace:*",
-    "@repo/components": "workspace:*"
   }
 }

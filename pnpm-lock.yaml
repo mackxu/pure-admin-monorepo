@@ -488,6 +488,12 @@ importers:
         specifier: ^3.0.4
         version: 3.0.6(typescript@5.9.2)
 
+  packages/components:
+    dependencies:
+      vue:
+        specifier: ^3.5.18
+        version: 3.5.21(typescript@5.9.2)
+
   packages/core/router:
     dependencies:
       vue-router:
@@ -501,6 +507,9 @@ importers:
       '@core/router':
         specifier: workspace:*
         version: link:../../packages/core/router
+      '@repo/components':
+        specifier: workspace:*
+        version: link:../../packages/components
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
