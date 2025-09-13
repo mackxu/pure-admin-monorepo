@@ -5,12 +5,11 @@
   "main": "index.js",
   "type": "module",
   "exports": {
-    "./*": "./src/*"
+    "./router": "./src/router/index.ts",
+    "./views/*": "./src/views/*"
   },
   "imports": {
-    "#*": [
-      "./src/*"
-    ]
+    "#*": "./src/*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
