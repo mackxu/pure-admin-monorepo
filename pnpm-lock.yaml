@@ -96,6 +96,9 @@ importers:
       '@faker-js/faker':
         specifier: ^9.9.0
         version: 9.9.0
+      '@glb/types':
+        specifier: workspace:*
+        version: link:types
       '@iconify/json':
         specifier: ^2.2.364
         version: 2.2.382
@@ -501,6 +504,8 @@ importers:
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
+
+  types: {}
 
 packages:
 

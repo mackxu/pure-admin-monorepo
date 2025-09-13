@@ -29,14 +29,10 @@
       "element-plus/global",
       "@pureadmin/table/volar",
       "unplugin-icons/types/vue",
-      "@pureadmin/descriptions/volar"
+      "@pureadmin/descriptions/volar",
+      "@glb/types"
     ]
   },
-  "references": [
-    {
-      "path": "../../pages/gas/tsconfig.json"
-    }
-  ],
   "include": [
     "mock/*.ts",
     "src/**/*.ts",

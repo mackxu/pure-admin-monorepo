@@ -25,7 +25,9 @@
       "element-plus/global",
       "@pureadmin/table/volar",
       "unplugin-icons/types/vue",
-      "@pureadmin/descriptions/volar"
+      "@pureadmin/descriptions/volar",
+      "@glb/types"
     ]
-  }
+  },
+  "exclude": ["**/node_modules/**", "**/dist/**", "**/.turbo/**"]
 }
