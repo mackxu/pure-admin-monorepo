@@ -15,7 +15,6 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "baseUrl": ".",
     "allowJs": false,
     "resolveJsonModule": true,
     "lib": ["ESNext", "DOM"],
@@ -28,7 +27,5 @@
       "@pureadmin/descriptions/volar",
       "@glb/types"
     ]
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["**/node_modules/**", "**/dist/**", "**/.turbo/**"]
+  }
 }

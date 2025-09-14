@@ -4,6 +4,6 @@ export default {
   meta: {
     icon: 'ri/information-line',
     title: 'bar',
-    rank: 9
-  }
+    rank: 9,
+  },
 } satisfies RouteConfigsTable;

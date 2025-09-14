@@ -1,5 +1,9 @@
 # monorepo
 
+## 实用命令
+
+- 查看tsconfig：`tsc --showConfig`
+
 ## exports语法
 
 ```json
@@ -12,7 +16,7 @@
 }
 ```
 
-## imports语法
+## subpath imports语法
 
 包内别名，必须以#开头
 
