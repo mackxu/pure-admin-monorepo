@@ -3,7 +3,7 @@ import {
   type RouteRecordRaw,
   type RouteComponent,
   createWebHistory,
-  createWebHashHistory
+  createWebHashHistory,
 } from 'vue-router';
 import { router } from './index';
 import { isProxy, toRaw } from 'vue';
@@ -14,7 +14,7 @@ import {
   isAllEmpty,
   intersection,
   storageLocal,
-  isIncludeAllChildren
+  isIncludeAllChildren,
 } from '@pureadmin/utils';
 import { getConfig } from '@/config';
 import { buildHierarchyTree } from '@/utils/tree';
@@ -22,9 +22,12 @@ import { userKey, type DataInfo } from '@/utils/auth';
 import { type menuType, routerArrays } from '@/layout/types';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import { usePermissionStoreHook } from '@/store/modules/permission';
+import { pageViews } from './pages';
 const IFrame = () => import('@/layout/frame.vue');
 // https://cn.vitejs.dev/guide/features.html#glob-import
-const modulesRoutes = import.meta.glob('/src/views/**/*.{vue,tsx}');
+const modulesRoutes1 = import.meta.glob('/src/views/**/*.{vue,tsx}'); // 视图列表，用于匹配接口下发的路由
+
+const modulesRoutes = { ...modulesRoutes1, ...pageViews };
 
 // 动态路由
 import { getAsyncRoutes } from '@/api/routes';
@@ -144,7 +147,7 @@ function addPathMatch() {
     router.addRoute({
       path: '/:pathMatch(.*)',
       name: 'pathMatch',
-      redirect: '/error/404'
+      redirect: '/error/404',
     });
   }
 }
@@ -154,30 +157,29 @@ function handleAsyncRoutes(routeList) {
   if (routeList.length === 0) {
     usePermissionStoreHook().handleWholeMenus(routeList);
   } else {
-    formatFlatteningRoutes(addAsyncRoutes(routeList)).map(
-      (v: RouteRecordRaw) => {
-        // 防止重复添加路由
-        if (
-          router.options.routes[0].children.findIndex(
-            value => value.path === v.path
-          ) !== -1
-        ) {
-          return;
-        } else {
-          // 切记将路由push到routes后还需要使用addRoute，这样路由才能正常跳转
-          router.options.routes[0].children.push(v);
-          // 最终路由进行升序
-          ascending(router.options.routes[0].children);
-          if (!router.hasRoute(v?.name)) router.addRoute(v);
-          const flattenRouters: any = router
-            .getRoutes()
-            .find(n => n.path === '/');
-          // 保持router.options.routes[0].children与path为"/"的children一致，防止数据不一致导致异常
-          flattenRouters.children = router.options.routes[0].children;
-          router.addRoute(flattenRouters);
-        }
+    const arr = formatFlatteningRoutes(addAsyncRoutes(routeList));
+    arr.map((v: RouteRecordRaw) => {
+      // 防止重复添加路由
+      if (
+        router.options.routes[0].children.findIndex(
+          value => value.path === v.path
+        ) !== -1
+      ) {
+        return;
+      } else {
+        // 切记将路由push到routes后还需要使用addRoute，这样路由才能正常跳转
+        router.options.routes[0].children.push(v);
+        // 最终路由进行升序
+        ascending(router.options.routes[0].children);
+        if (!router.hasRoute(v?.name)) router.addRoute(v);
+        const flattenRouters: any = router
+          .getRoutes()
+          .find(n => n.path === '/');
+        // 保持router.options.routes[0].children与path为"/"的children一致，防止数据不一致导致异常
+        flattenRouters.children = router.options.routes[0].children;
+        router.addRoute(flattenRouters);
       }
-    );
+    });
     usePermissionStoreHook().handleWholeMenus(routeList);
   }
   if (!useMultiTagsStoreHook().getMultiTagsCache) {
@@ -185,7 +187,7 @@ function handleAsyncRoutes(routeList) {
       ...routerArrays,
       ...usePermissionStoreHook().flatteningRoutes.filter(
         v => v?.meta?.fixedTag
-      )
+      ),
     ]);
   }
   addPathMatch();
@@ -222,7 +224,7 @@ function initRouter() {
 }
 
 /**
- * 将多级嵌套路由处理成一维数组
+ * 将多级嵌套路由处理成一维数组 深度优先遍历
  * @param routesList 传入路由
  * @returns 返回处理后的一维路由
  */
@@ -256,7 +258,7 @@ function formatTwoStageRoutes(routesList: RouteRecordRaw[]) {
         path: v.path,
         redirect: v.redirect,
         meta: v.meta,
-        children: []
+        children: [],
       });
     } else {
       newRoutesList[0]?.children.push({ ...v });
@@ -271,36 +273,39 @@ function handleAliveRoute({ name }: ToRouteType, mode?: string) {
     case 'add':
       usePermissionStoreHook().cacheOperate({
         mode: 'add',
-        name
+        name,
       });
       break;
     case 'delete':
       usePermissionStoreHook().cacheOperate({
         mode: 'delete',
-        name
+        name,
       });
       break;
     case 'refresh':
       usePermissionStoreHook().cacheOperate({
         mode: 'refresh',
-        name
+        name,
       });
       break;
     default:
       usePermissionStoreHook().cacheOperate({
         mode: 'delete',
-        name
+        name,
       });
       useTimeoutFn(() => {
         usePermissionStoreHook().cacheOperate({
           mode: 'add',
-          name
+          name,
         });
       }, 100);
   }
 }
 
-/** 过滤后端传来的动态路由 重新生成规范路由 */
+/**
+ * 过滤后端传来的动态路由 重新生成规范路由(正确赋值component)
+ * 如果存在嵌套路由，递归调用 addAsyncRoutes 方法
+ */
 function addAsyncRoutes(arrRoutes: Array<RouteRecordRaw>) {
   if (!arrRoutes || !arrRoutes.length) return;
   const modulesRoutesKeys = Object.keys(modulesRoutes);
@@ -310,9 +315,11 @@ function addAsyncRoutes(arrRoutes: Array<RouteRecordRaw>) {
     // 父级的redirect属性取值：如果子级存在且父级的redirect属性不存在，默认取第一个子级的path；如果子级存在且父级的redirect属性存在，取存在的redirect属性，会覆盖默认值
     if (v?.children && v.children.length && !v.redirect)
       v.redirect = v.children[0].path;
+
     // 父级的name属性取值：如果子级存在且父级的name属性不存在，默认取第一个子级的name；如果子级存在且父级的name属性存在，取存在的name属性，会覆盖默认值（注意：测试中发现父级的name不能和子级name重复，如果重复会造成重定向无效（跳转404），所以这里给父级的name起名的时候后面会自动加上`Parent`，避免重复）
     if (v?.children && v.children.length && !v.name)
       v.name = (v.children[0].name as string) + 'Parent';
+
     if (v.meta?.frameSrc) {
       v.component = IFrame;
     } else {
@@ -406,5 +413,5 @@ export {
   handleAliveRoute,
   formatTwoStageRoutes,
   formatFlatteningRoutes,
-  filterNoPermissionTree
+  filterNoPermissionTree,
 };

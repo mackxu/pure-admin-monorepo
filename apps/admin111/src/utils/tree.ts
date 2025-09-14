@@ -61,7 +61,7 @@ export const buildHierarchyTree = (tree: any[], pathList = []): any => {
   if (!tree || tree.length === 0) return [];
   for (const [key, node] of tree.entries()) {
     node.id = key;
-    node.parentId = pathList.length ? pathList[pathList.length - 1] : null;
+    node.parentId = pathList.length ? pathList[pathList.length - 1] : null; // 找到父节点
     node.pathList = [...pathList, node.id];
     const hasChildren = node.children && node.children.length > 0;
     if (hasChildren) {
@@ -147,7 +147,7 @@ export const handleTree = (
   const config = {
     id: id || 'id',
     parentId: parentId || 'parentId',
-    childrenList: children || 'children'
+    childrenList: children || 'children',
   };
 
   const childrenListMap: any = {};

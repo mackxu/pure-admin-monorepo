@@ -11,7 +11,7 @@ import {
   openLink,
   cloneDeep,
   isAllEmpty,
-  storageLocal
+  storageLocal,
 } from '@pureadmin/utils';
 import {
   ascending,
@@ -21,19 +21,19 @@ import {
   findRouteByPath,
   handleAliveRoute,
   formatTwoStageRoutes,
-  formatFlatteningRoutes
+  formatFlatteningRoutes,
 } from './utils';
 import type { Router, RouteRecordRaw, RouteComponent } from 'vue-router';
 import {
   type DataInfo,
   userKey,
   removeToken,
-  multipleTabsKey
+  multipleTabsKey,
 } from '@/utils/auth';
 
 import { initRouterInstance } from '@core/router';
-import gasRouters from '@page/gas/router';
-import fooRouter from '@/router/foo';
+
+import { pageStaticRouters } from './pages';
 
 /** 自动导入全部静态路由，无需再手动引入！匹配 src/router/modules 目录（任何嵌套级别）中具有 .ts 扩展名的所有文件，除了 remaining.ts 文件
  * 如何匹配所有文件请看：https://github.com/mrmlnc/fast-glob#basic-syntax
@@ -42,16 +42,18 @@ import fooRouter from '@/router/foo';
 const modules: Record<string, any> = import.meta.glob(
   ['./modules/**/*.ts', '!./modules/**/remaining.ts'],
   {
-    eager: true
+    eager: true,
   }
 );
 
 /** 原始静态路由（未做任何处理） */
-const routes = [gasRouters, fooRouter];
+const routes = [];
 
 Object.keys(modules).forEach(key => {
   routes.push(modules[key].default);
 });
+
+routes.push(...pageStaticRouters);
 
 /** 导出处理后的静态路由（三级及以上的路由全部拍成二级） */
 export const constantRoutes: Array<RouteRecordRaw> = formatTwoStageRoutes(
@@ -112,7 +114,6 @@ const whiteList = ['/login'];
 const { VITE_HIDE_HOME } = import.meta.env;
 
 router.beforeEach((to: ToRouteType, _from, next) => {
-  debugger;
   if (to.meta?.keepAlive) {
     handleAliveRoute(to, 'add');
     // 页面整体刷新和点击标签页刷新
@@ -174,14 +175,14 @@ router.beforeEach((to: ToRouteType, _from, next) => {
                 useMultiTagsStoreHook().handleTags('push', {
                   path,
                   name,
-                  meta
+                  meta,
                 });
               } else {
                 const { path, name, meta } = route;
                 useMultiTagsStoreHook().handleTags('push', {
                   path,
                   name,
-                  meta
+                  meta,
                 });
               }
             }

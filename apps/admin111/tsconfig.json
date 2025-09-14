@@ -41,5 +41,6 @@
     "types/*.d.ts",
     "vite.config.ts"
   ],
-  "exclude": ["dist", "**/*.js", "node_modules"]
+  "exclude": ["dist", "**/*.js", "node_modules"],
+  "references": [{ "path": "../../pages/gas" }]
 }

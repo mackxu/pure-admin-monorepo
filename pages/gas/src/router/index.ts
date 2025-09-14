@@ -3,7 +3,7 @@ export default {
   component: () => import('#views/bar/index.vue'),
   meta: {
     icon: 'ri/information-line',
-    title: 'bar',
+    title: 'gas-bar',
     rank: 9,
   },
 } satisfies RouteConfigsTable;
