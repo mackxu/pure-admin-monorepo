@@ -57,15 +57,15 @@ const permissionRouter = {
 };
 
 const fooRouter = {
-  path: '/foo',
+  path: '/gas/foo',
   meta: {
     icon: 'ep:lollipop',
-    title: 'foo test',
+    title: 'gas-foo',
     rank: 0,
   },
   children: [
     {
-      path: '/foo/index',
+      path: '/gas/foo/index',
       name: 'Foo',
       component: 'gas/src/views/foo/index.vue',
       meta: {

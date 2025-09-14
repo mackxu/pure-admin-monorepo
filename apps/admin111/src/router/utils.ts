@@ -22,7 +22,7 @@ import { userKey, type DataInfo } from '@/utils/auth';
 import { type menuType, routerArrays } from '@/layout/types';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import { usePermissionStoreHook } from '@/store/modules/permission';
-import { pageViews } from './pages';
+import { pageViews, composePages } from './pages';
 const IFrame = () => import('@/layout/frame.vue');
 // https://cn.vitejs.dev/guide/features.html#glob-import
 const modulesRoutes1 = import.meta.glob('/src/views/**/*.{vue,tsx}'); // 视图列表，用于匹配接口下发的路由
@@ -152,12 +152,22 @@ function addPathMatch() {
   }
 }
 
+const asyncRouteWhiteList = ['/permission'].concat(
+  composePages.map(v => `/${v}`)
+);
+
 /** 处理动态路由（后端返回的路由） */
 function handleAsyncRoutes(routeList) {
   if (routeList.length === 0) {
     usePermissionStoreHook().handleWholeMenus(routeList);
   } else {
+    // todo: 移除没被组合的页面路由：先简单处理
+    routeList = routeList.filter(v => {
+      const vPrefix = `/${v.path.split('/')[1]}`;
+      return asyncRouteWhiteList.includes(vPrefix);
+    });
     const arr = formatFlatteningRoutes(addAsyncRoutes(routeList));
+    console.log(arr);
     arr.map((v: RouteRecordRaw) => {
       // 防止重复添加路由
       if (
@@ -309,6 +319,7 @@ function handleAliveRoute({ name }: ToRouteType, mode?: string) {
 function addAsyncRoutes(arrRoutes: Array<RouteRecordRaw>) {
   if (!arrRoutes || !arrRoutes.length) return;
   const modulesRoutesKeys = Object.keys(modulesRoutes);
+
   arrRoutes.forEach((v: RouteRecordRaw) => {
     // 将backstage属性加入meta，标识此路由为后端返回路由
     v.meta.backstage = true;
