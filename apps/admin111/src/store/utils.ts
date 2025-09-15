@@ -1,4 +1,4 @@
-export { store } from '@/store';
+export { store } from '@core/store';
 export { routerArrays } from '@/layout/types';
 export { router, resetRouter, constantMenus } from '@/router';
 export { getConfig, responsiveStorageNameSpace } from '@/config';
@@ -6,7 +6,7 @@ export {
   ascending,
   filterTree,
   filterNoPermissionTree,
-  formatFlatteningRoutes
+  formatFlatteningRoutes,
 } from '@/router/utils';
 export {
   isUrl,
@@ -16,7 +16,7 @@ export {
   isBoolean,
   getKeyList,
   storageLocal,
-  deviceDetection
+  deviceDetection,
 } from '@pureadmin/utils';
 export type {
   setType,
@@ -24,5 +24,5 @@ export type {
   userType,
   multiType,
   cacheType,
-  positionType
+  positionType,
 } from './types';

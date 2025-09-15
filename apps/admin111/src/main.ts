@@ -1,6 +1,6 @@
 import App from './App.vue';
 import router from './router'; // 获得路由实例
-import { setupStore } from '@/store';
+import { setupStore } from '@core/store';
 import { getPlatformConfig } from './config';
 import { MotionPlugin } from '@vueuse/motion';
 // import { useEcharts } from "@/plugins/echarts";
@@ -34,7 +34,7 @@ Object.keys(directives).forEach(key => {
 import {
   IconifyIconOffline,
   IconifyIconOnline,
-  FontIcon
+  FontIcon,
 } from './components/ReIcon';
 app.component('IconifyIconOffline', IconifyIconOffline);
 app.component('IconifyIconOnline', IconifyIconOnline);

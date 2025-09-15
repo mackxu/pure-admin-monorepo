@@ -39,6 +39,8 @@ const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
 const alias: Record<string, string> = {
   '@': pathResolve('../src'),
   '@build': pathResolve(),
+  '@core/router': pathResolve('../../../packages/core/router/src'),
+  '@core/store': pathResolve('../../../packages/core/store/src'),
   '@page/gas': pathResolve('../../../pages/gas/src'),
   '@page/water': pathResolve('../../../pages/water/src'),
 };
