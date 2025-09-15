@@ -8,7 +8,7 @@ import {
   version,
   engines,
   dependencies,
-  devDependencies
+  devDependencies,
 } from '../package.json';
 
 /** 启动`node`进程时所在工作目录的绝对路径 */
@@ -39,13 +39,14 @@ const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
 const alias: Record<string, string> = {
   '@': pathResolve('../src'),
   '@build': pathResolve(),
-  '@page/gas': pathResolve('../../../pages/gas/src')
+  '@page/gas': pathResolve('../../../pages/gas/src'),
+  '@page/water': pathResolve('../../../pages/water/src'),
 };
 
 /** 平台的名称、版本、运行所需的`node`和`pnpm`版本、依赖、最后构建时间的类型提示 */
 const __APP_INFO__ = {
   pkg: { name, version, engines, dependencies, devDependencies },
-  lastBuildTime: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
+  lastBuildTime: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'),
 };
 
 /** 处理环境变量 */
@@ -57,7 +58,7 @@ const wrapperEnv = (envConf: Recordable): ViteEnv => {
     VITE_ROUTER_HISTORY: '',
     VITE_CDN: false,
     VITE_HIDE_HOME: 'false',
-    VITE_COMPRESSION: 'none'
+    VITE_COMPRESSION: 'none',
   };
 
   for (const envName of Object.keys(envConf)) {
@@ -99,7 +100,7 @@ const getPackageSize = options => {
         } else if (stats.isDirectory()) {
           getPackageSize({
             folder: `${folder}/${item}/`,
-            callback: checkEnd
+            callback: checkEnd,
           });
         }
       });

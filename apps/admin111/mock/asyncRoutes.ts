@@ -1,5 +1,4 @@
 // 模拟后端动态生成路由
-import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs';
 import { defineFakeRoute } from 'vite-plugin-fake-server/client';
 
 /**
@@ -59,9 +58,9 @@ const permissionRouter = {
 const fooRouter = {
   path: '/gas/foo',
   meta: {
-    icon: 'ep:lollipop',
+    icon: 'ri/information-line',
     title: 'gas-foo',
-    rank: 0,
+    rank: 11,
   },
   children: [
     {
@@ -70,7 +69,26 @@ const fooRouter = {
       component: 'gas/src/views/foo/index.vue',
       meta: {
         title: 'gas-foo-api',
-        rank: 0,
+      },
+    },
+  ],
+};
+
+const waterRouter = {
+  path: '/water/bbb',
+  name: 'water',
+  meta: {
+    icon: 'ep:lollipop',
+    title: 'water-bbb-fuck',
+    rank: 12,
+  },
+  children: [
+    {
+      path: '/water/bbb/index',
+      name: 'water-bbb',
+      component: 'water/src/views/bbb/index.vue',
+      meta: {
+        title: 'water-bbb-api',
       },
     },
   ],
@@ -83,7 +101,7 @@ export default defineFakeRoute([
     response: () => {
       return {
         success: true,
-        data: [permissionRouter, fooRouter],
+        data: [permissionRouter, fooRouter, waterRouter],
       };
     },
   },

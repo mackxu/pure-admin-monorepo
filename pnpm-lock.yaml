@@ -255,6 +255,9 @@ importers:
       '@page/gas':
         specifier: workspace:*
         version: link:../../pages/gas
+      '@page/water':
+        specifier: workspace:*
+        version: link:../../pages/water
       '@pureadmin/descriptions':
         specifier: ^1.2.1
         version: 1.2.1(echarts@5.6.0)(element-plus@2.11.2(vue@3.5.21(typescript@5.9.2)))(typescript@5.9.2)
@@ -503,6 +506,18 @@ importers:
   packages/core/store: {}
 
   pages/gas:
+    dependencies:
+      '@core/router':
+        specifier: workspace:*
+        version: link:../../packages/core/router
+      '@repo/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      vue:
+        specifier: ^3.5.18
+        version: 3.5.21(typescript@5.9.2)
+
+  pages/water:
     dependencies:
       '@core/router':
         specifier: workspace:*

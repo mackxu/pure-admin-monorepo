@@ -1,5 +1,7 @@
 import gasRouters from '@page/gas/router';
-const { VITE_COMPOSE_GAS } = import.meta.env;
+import waterRouters from '@page/water/router';
+
+const { VITE_COMPOSE_GAS, VITE_COMPOSE_WATER } = import.meta.env;
 
 export const composePages = [];
 
@@ -16,6 +18,19 @@ if (VITE_COMPOSE_GAS === 'true') {
     pageViews = {
       ...pageViews,
       ...gasPageViews,
+    };
+  }
+}
+
+if (VITE_COMPOSE_WATER === 'true') {
+  pageStaticRouters.push(waterRouters);
+  composePages.push('water');
+  // water page views
+  const waterPageViews = import.meta.glob('@page/water/views/**/*.{vue,tsx}'); // water视图列表，用于匹配接口下发的路由
+  if (VITE_COMPOSE_WATER) {
+    pageViews = {
+      ...pageViews,
+      ...waterPageViews,
     };
   }
 }
