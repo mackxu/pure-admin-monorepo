@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { emitter } from '@/utils/mitt';
+import { emitter } from '@repo/utils/mitt';
 import { useNav } from '@/layout/hooks/useNav';
 import { responsiveStorageNameSpace } from '@/config';
 import { storageLocal, isAllEmpty } from '@pureadmin/utils';
@@ -26,7 +26,7 @@ const {
   isCollapse,
   tooltipEffect,
   menuSelect,
-  toggleSideBar
+  toggleSideBar,
 } = useNav();
 
 const subMenuData = ref([]);

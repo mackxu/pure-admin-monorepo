@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { emitter } from '@/utils/mitt';
+import { emitter } from '@repo/utils/mitt';
 import { RouteConfigs } from '../../types';
 import { useTags } from '../../hooks/useTag';
 import { routerArrays } from '@/layout/types';
@@ -14,7 +14,7 @@ import {
   delay,
   isEqual,
   isAllEmpty,
-  useResizeObserver
+  useResizeObserver,
 } from '@pureadmin/utils';
 
 import ExitFullscreen from '~icons/ri/fullscreen-exit-fill';
@@ -50,7 +50,7 @@ const {
   onMounted,
   onMouseenter,
   onMouseleave,
-  onContentFullScreen
+  onContentFullScreen,
 } = useTags();
 
 const tabDom = ref();
@@ -62,7 +62,7 @@ const topPath = getTopMenu()?.path;
 const { VITE_HIDE_HOME } = import.meta.env;
 const fixedTags = [
   ...routerArrays,
-  ...usePermissionStoreHook().flatteningRoutes.filter(v => v?.meta?.fixedTag)
+  ...usePermissionStoreHook().flatteningRoutes.filter(v => v?.meta?.fixedTag),
 ];
 
 const dynamicTagView = async () => {
@@ -189,7 +189,7 @@ function dynamicRouteTag(value: string): void {
           useMultiTagsStoreHook().handleTags('push', {
             path: value,
             meta: arrItem.meta,
-            name: arrItem.name
+            name: arrItem.name,
           });
         } else {
           if (arrItem.children && arrItem.children.length > 0) {
@@ -207,7 +207,7 @@ function onFresh() {
   const { fullPath, query } = unref(route);
   router.replace({
     path: '/redirect' + fullPath,
-    query
+    query,
   });
   handleAliveRoute(route as ToRouteType, 'refresh');
 }
@@ -237,13 +237,13 @@ function deleteDynamicTag(obj: any, current: any, tag?: string) {
         'equal',
         [
           VITE_HIDE_HOME === 'false' ? fixedTags : toRaw(getTopMenu()),
-          obj
+          obj,
         ].flat()
       );
     } else {
       useMultiTagsStoreHook().handleTags('splice', '', {
         startIndex,
-        length
+        length,
       }) as any;
     }
     dynamicTagView();
@@ -298,7 +298,7 @@ function onClickDrop(key, item, selectRoute?: RouteConfigs) {
       meta: selectRoute.meta,
       name: selectRoute.name,
       query: selectRoute?.query,
-      params: selectRoute?.params
+      params: selectRoute?.params,
     };
   } else {
     selectTagRoute = { path: route.path, meta: route.meta };
@@ -330,7 +330,7 @@ function onClickDrop(key, item, selectRoute?: RouteConfigs) {
       // 关闭全部标签页
       useMultiTagsStoreHook().handleTags('splice', '', {
         startIndex: fixedTags.length,
-        length: multiTags.value.length
+        length: multiTags.value.length,
       });
       router.push(topPath);
       // router.push(fixedTags[fixedTags.length - 1]?.path);
@@ -496,12 +496,12 @@ function tagOnClick(item) {
     if (item.query) {
       router.push({
         name,
-        query: item.query
+        query: item.query,
       });
     } else if (item.params) {
       router.push({
         name,
-        params: item.params
+        params: item.params,
       });
     } else {
       router.push({ name });
@@ -513,7 +513,7 @@ function tagOnClick(item) {
 }
 
 onClickOutside(contextmenuRef, closeMenu, {
-  detectIframe: true
+  detectIframe: true,
 });
 
 watch(route, () => {
@@ -578,7 +578,7 @@ onBeforeUnmount(() => {
             'scroll-item is-closable',
             linkIsActive(item),
             showModel === 'chrome' && 'chrome-item',
-            isFixedTag(item) && 'fixed-tag'
+            isFixedTag(item) && 'fixed-tag',
           ]"
           @contextmenu.prevent="openMenu(item, $event)"
           @mouseenter.prevent="onMouseenter(index)"

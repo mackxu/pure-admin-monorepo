@@ -1,8 +1,8 @@
 // import "@/utils/sso";
 import Cookies from 'js-cookie';
 import { getConfig } from '@/config';
-import NProgress from '@/utils/progress';
-import { buildHierarchyTree } from '@/utils/tree';
+import NProgress from '@repo/utils/progress';
+import { buildHierarchyTree } from './tree';
 import remainingRouter from './modules/remaining';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import { usePermissionStoreHook } from '@/store/modules/permission';

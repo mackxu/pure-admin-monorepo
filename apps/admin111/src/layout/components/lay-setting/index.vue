@@ -7,9 +7,9 @@ import {
   computed,
   nextTick,
   onUnmounted,
-  onBeforeMount
+  onBeforeMount,
 } from 'vue';
-import { emitter } from '@/utils/mitt';
+import { emitter } from '@repo/utils/mitt';
 import LayPanel from '../lay-panel/index.vue';
 import { useNav } from '@/layout/hooks/useNav';
 import { useAppStoreHook } from '@/store/modules/app';
@@ -40,7 +40,7 @@ const {
   themeColors,
   toggleClass,
   dataThemeChange,
-  setLayoutThemeColor
+  setLayoutThemeColor,
 } = useDataThemeChange();
 
 /* body添加layout属性，作用于src/style/sidebar.scss */
@@ -64,7 +64,7 @@ const settings = reactive({
   showModel: $storage.configure.showModel,
   hideFooter: $storage.configure.hideFooter,
   multiTagsCache: $storage.configure.multiTagsCache,
-  stretch: $storage.configure.stretch
+  stretch: $storage.configure.stretch,
 });
 
 const getThemeColorStyle = computed(() => {
@@ -147,13 +147,13 @@ const stretchTypeOptions = computed<Array<OptionsType>>(() => {
     {
       label: '固定',
       tip: '紧凑页面，轻松找到所需信息',
-      value: 'fixed'
+      value: 'fixed',
     },
     {
       label: '自定义',
       tip: '最小1280、最大1600',
-      value: 'custom'
-    }
+      value: 'custom',
+    },
   ];
 });
 
@@ -197,22 +197,22 @@ const themeOptions = computed<Array<OptionsType>>(() => {
       icon: DayIcon,
       theme: 'light',
       tip: '清新启航，点亮舒适的工作界面',
-      iconAttrs: { fill: isDark.value ? '#fff' : '#000' }
+      iconAttrs: { fill: isDark.value ? '#fff' : '#000' },
     },
     {
       label: '深色',
       icon: DarkIcon,
       theme: 'dark',
       tip: '月光序曲，沉醉于夜的静谧雅致',
-      iconAttrs: { fill: isDark.value ? '#fff' : '#000' }
+      iconAttrs: { fill: isDark.value ? '#fff' : '#000' },
     },
     {
       label: '自动',
       icon: SystemIcon,
       theme: 'system',
       tip: '同步时光，界面随晨昏自然呼应',
-      iconAttrs: { fill: isDark.value ? '#fff' : '#000' }
-    }
+      iconAttrs: { fill: isDark.value ? '#fff' : '#000' },
+    },
   ];
 });
 
@@ -221,18 +221,18 @@ const markOptions = computed<Array<OptionsType>>(() => {
     {
       label: '灵动',
       tip: '灵动标签，添趣生辉',
-      value: 'smart'
+      value: 'smart',
     },
     {
       label: '卡片',
       tip: '卡片标签，高效浏览',
-      value: 'card'
+      value: 'card',
     },
     {
       label: '谷歌',
       tip: '谷歌风格，经典美观',
-      value: 'chrome'
-    }
+      value: 'chrome',
+    },
   ];
 });
 
@@ -247,7 +247,7 @@ function setLayoutModel(layout: string) {
     sidebarStatus: $storage.layout?.sidebarStatus,
     epThemeColor: $storage.layout?.epThemeColor,
     themeColor: $storage.layout?.themeColor,
-    overallStyle: $storage.layout?.overallStyle
+    overallStyle: $storage.layout?.overallStyle,
   };
   useAppStoreHook().setLayout(layout);
 }
@@ -358,7 +358,7 @@ onUnmounted(() => removeMatchMedia);
           ref="verticalRef"
           v-tippy="{
             content: '左侧菜单，亲切熟悉',
-            zIndex: 41000
+            zIndex: 41000,
           }"
           :class="layoutTheme.layout === 'vertical' ? 'is-select' : ''"
           @click="setLayoutModel('vertical')"
@@ -371,7 +371,7 @@ onUnmounted(() => removeMatchMedia);
           ref="horizontalRef"
           v-tippy="{
             content: '顶部菜单，简洁概览',
-            zIndex: 41000
+            zIndex: 41000,
           }"
           :class="layoutTheme.layout === 'horizontal' ? 'is-select' : ''"
           @click="setLayoutModel('horizontal')"
@@ -384,7 +384,7 @@ onUnmounted(() => removeMatchMedia);
           ref="mixRef"
           v-tippy="{
             content: '混合菜单，灵活多变',
-            zIndex: 41000
+            zIndex: 41000,
           }"
           :class="layoutTheme.layout === 'mix' ? 'is-select' : ''"
           @click="setLayoutModel('mix')"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { emitter } from '@/utils/mitt';
+import { emitter } from '@repo/utils/mitt';
 import { useNav } from '@/layout/hooks/useNav';
 import LaySearch from '../lay-search/index.vue';
 import LayNotice from '../lay-notice/index.vue';
@@ -29,7 +29,7 @@ const {
   username,
   userAvatar,
   backTopMenu,
-  avatarsStyle
+  avatarsStyle,
 } = useNav();
 
 const defaultActive = computed(() =>

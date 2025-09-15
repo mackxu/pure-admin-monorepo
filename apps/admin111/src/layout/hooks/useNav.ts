@@ -1,6 +1,6 @@
 import { storeToRefs } from 'pinia';
 import { getConfig } from '@/config';
-import { emitter } from '@/utils/mitt';
+import { emitter } from '@repo/utils/mitt';
 import Avatar from '@/assets/user.jpg';
 import { getTopMenu } from '@/router/utils';
 import { useFullscreen } from '@vueuse/core';
@@ -33,7 +33,7 @@ export function useNav() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      overflow: 'hidden'
+      overflow: 'hidden',
     };
   });
 
@@ -152,6 +152,6 @@ export function useNav() {
     username,
     userAvatar,
     avatarsStyle,
-    tooltipEffect
+    tooltipEffect,
   };
 }

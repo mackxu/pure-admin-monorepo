@@ -1,4 +1,4 @@
-import { message } from '@/utils/message';
+import { message } from '@repo/utils/message';
 import { useEventListener } from '@vueuse/core';
 import { copyTextToClipboard } from '@pureadmin/utils';
 import type { Directive, DirectiveBinding } from 'vue';
@@ -29,5 +29,5 @@ export const copy: Directive = {
   },
   updated(el: CopyEl, binding: DirectiveBinding) {
     el.copyValue = binding.value;
-  }
+  },
 };

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Motion from './utils/motion';
 import { useRouter } from 'vue-router';
-import { message } from '@/utils/message';
+import { message } from '@repo/utils/message';
 import { loginRules } from './utils/rule';
 import { ref, reactive, toRaw } from 'vue';
 import { debounce } from '@pureadmin/utils';
@@ -21,7 +21,7 @@ import Lock from '~icons/ri/lock-fill';
 import User from '~icons/ri/user-3-fill';
 
 defineOptions({
-  name: 'Login'
+  name: 'Login',
 });
 
 const router = useRouter();
@@ -38,7 +38,7 @@ const { title } = useNav();
 
 const ruleForm = reactive({
   username: 'admin',
-  password: 'admin123'
+  password: 'admin123',
 });
 
 const onLogin = async (formEl: FormInstance | undefined) => {
@@ -49,7 +49,7 @@ const onLogin = async (formEl: FormInstance | undefined) => {
       useUserStoreHook()
         .loginByUsername({
           username: ruleForm.username,
-          password: ruleForm.password
+          password: ruleForm.password,
         })
         .then(res => {
           if (res.success) {
@@ -124,8 +124,8 @@ useEventListener(document, 'keydown', ({ code }) => {
                   {
                     required: true,
                     message: '请输入账号',
-                    trigger: 'blur'
-                  }
+                    trigger: 'blur',
+                  },
                 ]"
                 prop="username"
               >

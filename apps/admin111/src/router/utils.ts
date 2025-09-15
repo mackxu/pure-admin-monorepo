@@ -17,7 +17,7 @@ import {
   isIncludeAllChildren,
 } from '@pureadmin/utils';
 import { getConfig } from '@/config';
-import { buildHierarchyTree } from '@/utils/tree';
+import { buildHierarchyTree } from './tree';
 import { userKey, type DataInfo } from '@/utils/auth';
 import { type menuType, routerArrays } from '@/layout/types';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';

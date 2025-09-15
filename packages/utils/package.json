@@ -1,0 +1,26 @@
+{
+  "name": "@repo/utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    "./*": "./src/*.ts",
+    "./progress": "./src/progress/index.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "xuyadong",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "peerDependencies": {
+    "vue": "^3.5.18",
+    "localforage": "^1.10.0",
+    "nprogress": "^0.2.0",
+    "@types/nprogress": "^0.2.3",
+    "mitt": "^3.0.1",
+    "@pureadmin/utils": "^2.6.2",
+    "@vueuse/core": "^13.6.0"
+  }
+}
