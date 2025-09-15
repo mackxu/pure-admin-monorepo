@@ -1,7 +1,7 @@
 export { store } from '@core/store';
 export { routerArrays } from '@/layout/types';
 export { router, resetRouter, constantMenus } from '@/router';
-export { getConfig, responsiveStorageNameSpace } from '@/config';
+export { getConfig, responsiveStorageNameSpace } from '@repo/config';
 export {
   ascending,
   filterTree,

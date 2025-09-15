@@ -1,5 +1,5 @@
 import { storeToRefs } from 'pinia';
-import { getConfig } from '@/config';
+import { getConfig } from '@repo/config';
 import { emitter } from '@repo/utils/mitt';
 import Avatar from '@/assets/user.jpg';
 import { getTopMenu } from '@/router/utils';

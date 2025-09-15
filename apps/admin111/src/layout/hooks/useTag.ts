@@ -5,11 +5,11 @@ import {
   reactive,
   onMounted,
   type CSSProperties,
-  getCurrentInstance
+  getCurrentInstance,
 } from 'vue';
 import type { tagsViewsType } from '../types';
 import { useRoute, useRouter } from 'vue-router';
-import { responsiveStorageNameSpace } from '@/config';
+import { responsiveStorageNameSpace } from '@repo/config';
 import { useSettingStoreHook } from '@/store/modules/settings';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import {
@@ -17,7 +17,7 @@ import {
   isBoolean,
   storageLocal,
   toggleClass,
-  hasClass
+  hasClass,
 } from '@pureadmin/utils';
 
 import Fullscreen from '~icons/ri/fullscreen-fill';
@@ -66,50 +66,50 @@ export function useTags() {
       text: '重新加载',
       divided: false,
       disabled: false,
-      show: true
+      show: true,
     },
     {
       icon: Close,
       text: '关闭当前标签页',
       divided: false,
       disabled: multiTags.value.length > 1 ? false : true,
-      show: true
+      show: true,
     },
     {
       icon: CloseLeftTags,
       text: '关闭左侧标签页',
       divided: true,
       disabled: multiTags.value.length > 1 ? false : true,
-      show: true
+      show: true,
     },
     {
       icon: CloseRightTags,
       text: '关闭右侧标签页',
       divided: false,
       disabled: multiTags.value.length > 1 ? false : true,
-      show: true
+      show: true,
     },
     {
       icon: CloseOtherTags,
       text: '关闭其他标签页',
       divided: true,
       disabled: multiTags.value.length > 2 ? false : true,
-      show: true
+      show: true,
     },
     {
       icon: CloseAllTags,
       text: '关闭全部标签页',
       divided: false,
       disabled: multiTags.value.length > 1 ? false : true,
-      show: true
+      show: true,
     },
     {
       icon: Fullscreen,
       text: '内容区全屏',
       divided: true,
       disabled: false,
-      show: true
-    }
+      show: true,
+    },
   ]);
 
   function conditionHandle(item, previous, next) {
@@ -152,7 +152,7 @@ export function useTags() {
   const getTabStyle = computed((): CSSProperties => {
     return {
       transform: `translateX(${translateX.value}px)`,
-      transition: isScrolling.value ? 'none' : 'transform 0.5s ease-in-out'
+      transition: isScrolling.value ? 'none' : 'transform 0.5s ease-in-out',
     };
   });
 
@@ -240,6 +240,6 @@ export function useTags() {
     onMounted,
     onMouseenter,
     onMouseleave,
-    onContentFullScreen
+    onContentFullScreen,
   };
 }

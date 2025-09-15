@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { getConfig } from '@/config';
+import { getConfig } from '@repo/config';
 import { useLayout } from './useLayout';
 import { removeToken } from '@/utils/auth';
 import { routerArrays } from '@/layout/types';
@@ -28,7 +28,7 @@ export function useDataThemeChange() {
     /* 绿宝石 */
     { color: '#13c2c2', themeColor: 'mingQing' },
     /* 酸橙绿 */
-    { color: '#52c41a', themeColor: 'auroraGreen' }
+    { color: '#52c41a', themeColor: 'auroraGreen' },
   ]);
 
   const { $storage } = useGlobal<GlobalPropertiesApi>();
@@ -59,7 +59,7 @@ export function useDataThemeChange() {
       sidebarStatus: $storage.layout?.sidebarStatus,
       epThemeColor: $storage.layout?.epThemeColor,
       themeColor: isClick ? theme : storageThemeColor,
-      overallStyle: overallStyle.value
+      overallStyle: overallStyle.value,
     };
 
     if (theme === 'default' || theme === 'light') {
@@ -133,6 +133,6 @@ export function useDataThemeChange() {
     toggleClass,
     dataThemeChange,
     setEpThemeColor,
-    setLayoutThemeColor
+    setLayoutThemeColor,
   };
 }

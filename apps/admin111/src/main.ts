@@ -1,7 +1,7 @@
 import App from './App.vue';
 import router from './router'; // 获得路由实例
 import { setupStore } from '@core/store';
-import { getPlatformConfig } from './config';
+import { getPlatformConfig } from '@repo/config';
 import { MotionPlugin } from '@vueuse/motion';
 // import { useEcharts } from "@/plugins/echarts";
 import { createApp, type Directive } from 'vue';

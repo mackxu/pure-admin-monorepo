@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { match } from 'pinyin-pro';
-import { getConfig } from '@/config';
+import { getConfig } from '@repo/config';
 import { useRouter } from 'vue-router';
 import SearchResult from './SearchResult.vue';
 import SearchFooter from './SearchFooter.vue';
@@ -56,7 +56,7 @@ const show = computed({
   },
   set(val: boolean) {
     emit('update:value', val);
-  }
+  },
 });
 
 watch(
@@ -259,7 +259,7 @@ function handleDrag(item: dragItem) {
   storageLocal().setItem(LOCALECOLLECTKEY, searchCollectList);
   historyOptions.value = [
     ...getStorageItem(LOCALEHISTORYKEY),
-    ...getStorageItem(LOCALECOLLECTKEY)
+    ...getStorageItem(LOCALECOLLECTKEY),
   ];
   historyPath.value = reorderedItem.path;
 }
@@ -278,7 +278,7 @@ onKeyStroke('ArrowDown', handleDown);
     :width="device === 'mobile' ? '80vw' : '40vw'"
     :before-close="handleClose"
     :style="{
-      borderRadius: '6px'
+      borderRadius: '6px',
     }"
     append-to-body
     @opened="inputRef.focus()"

@@ -1,6 +1,6 @@
 // import "@/utils/sso";
 import Cookies from 'js-cookie';
-import { getConfig } from '@/config';
+import { getConfig } from '@repo/config';
 import NProgress from '@repo/utils/progress';
 import { buildHierarchyTree } from './tree';
 import remainingRouter from './modules/remaining';

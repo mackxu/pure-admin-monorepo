@@ -16,7 +16,7 @@ import {
   storageLocal,
   isIncludeAllChildren,
 } from '@pureadmin/utils';
-import { getConfig } from '@/config';
+import { getConfig } from '@repo/config';
 import { buildHierarchyTree } from './tree';
 import { userKey, type DataInfo } from '@/utils/auth';
 import { type menuType, routerArrays } from '@/layout/types';

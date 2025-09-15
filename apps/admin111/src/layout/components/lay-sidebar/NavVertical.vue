@@ -2,7 +2,7 @@
 import { useRoute } from 'vue-router';
 import { emitter } from '@repo/utils/mitt';
 import { useNav } from '@/layout/hooks/useNav';
-import { responsiveStorageNameSpace } from '@/config';
+import { responsiveStorageNameSpace } from '@repo/config';
 import { storageLocal, isAllEmpty } from '@pureadmin/utils';
 import { findRouteByPath, getParentPaths } from '@/router/utils';
 import { usePermissionStoreHook } from '@/store/modules/permission';

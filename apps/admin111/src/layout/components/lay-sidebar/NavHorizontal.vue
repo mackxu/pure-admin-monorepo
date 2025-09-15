@@ -3,7 +3,7 @@ import { emitter } from '@repo/utils/mitt';
 import { useNav } from '@/layout/hooks/useNav';
 import LaySearch from '../lay-search/index.vue';
 import LayNotice from '../lay-notice/index.vue';
-import { responsiveStorageNameSpace } from '@/config';
+import { responsiveStorageNameSpace } from '@repo/config';
 import { ref, nextTick, computed, onMounted } from 'vue';
 import { storageLocal, isAllEmpty } from '@pureadmin/utils';
 import { usePermissionStoreHook } from '@/store/modules/permission';
