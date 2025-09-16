@@ -1,4 +1,4 @@
-import { setToken } from '@/utils/auth';
+import { setToken } from '@repo/store/utils/auth';
 import { http } from './http';
 
 export type UserResult = {

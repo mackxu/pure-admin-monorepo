@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { hasPerms } from '@/utils/auth';
+import { hasPerms } from '@repo/store/utils/auth';
 import { useUserStoreHook } from '@repo/store/modules/user';
 
 const { permissions } = useUserStoreHook();

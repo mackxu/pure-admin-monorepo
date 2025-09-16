@@ -13,7 +13,7 @@ import { stringify } from 'qs';
 import NProgress from '@repo/utils/progress';
 import { getToken, formatToken } from '@repo/utils/token';
 import { refreshTokenApi, type RefreshTokenResult } from '../user';
-import { setToken } from '@/utils/auth';
+import { setToken } from '@repo/store/utils/auth';
 
 // 相关配置请参考：www.axios-js.com/zh-cn/docs/#axios-request-config-1
 const defaultConfig: AxiosRequestConfig = {

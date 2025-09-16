@@ -1,5 +1,5 @@
 import type { DataInfo } from '@repo/types/user';
-import { setToken } from './auth';
+import { setToken } from '@repo/store/utils/auth';
 import { subBefore, getQueryMap } from '@pureadmin/utils';
 import { removeToken } from '@repo/utils/token';
 

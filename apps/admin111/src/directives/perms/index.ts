@@ -1,4 +1,4 @@
-import { hasPerms } from '@/utils/auth';
+import { hasPerms } from '@repo/store/utils/auth';
 import type { Directive, DirectiveBinding } from 'vue';
 
 export const perms: Directive = {
@@ -11,5 +11,5 @@ export const perms: Directive = {
         "[Directive: perms]: need perms! Like v-perms=\"['btn.add','btn.edit']\""
       );
     }
-  }
+  },
 };
