@@ -285,6 +285,9 @@ importers:
       '@repo/store':
         specifier: workspace:*
         version: link:../../packages/store
+      '@repo/style':
+        specifier: workspace:*
+        version: link:../../packages/style
       '@repo/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -607,6 +610,15 @@ importers:
       pinia:
         specifier: ^3.0.3
         version: 3.0.3(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))
+      vue:
+        specifier: ^3.5.18
+        version: 3.5.21(typescript@5.9.2)
+
+  packages/style:
+    dependencies:
+      axios:
+        specifier: ^1.11.0
+        version: 1.11.0
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
