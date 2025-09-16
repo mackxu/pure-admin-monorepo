@@ -8,11 +8,12 @@ import type {
   RequestMethods,
   PureHttpResponse,
   PureHttpRequestConfig,
-} from './types.d';
+} from './types';
 import { stringify } from 'qs';
 import NProgress from '@repo/utils/progress';
 import { getToken, formatToken } from '@repo/utils/token';
-import { useUserStoreHook } from '@/store/modules/user';
+import { refreshTokenApi, type RefreshTokenResult } from '../user';
+import { setToken } from '@/utils/auth';
 
 // 相关配置请参考：www.axios-js.com/zh-cn/docs/#axios-request-config-1
 const defaultConfig: AxiosRequestConfig = {
@@ -85,8 +86,7 @@ class PureHttp {
                   if (!PureHttp.isRefreshing) {
                     PureHttp.isRefreshing = true;
                     // token过期刷新
-                    useUserStoreHook()
-                      .handRefreshToken({ refreshToken: data.refreshToken })
+                    handRefreshToken({ refreshToken: data.refreshToken })
                       .then(res => {
                         const token = res.data.accessToken;
                         config.headers['Authorization'] = formatToken(token);
@@ -189,6 +189,22 @@ class PureHttp {
   ): Promise<T> {
     return this.request<T>('get', url, params, config);
   }
+}
+
+/** 刷新`token` */
+async function handRefreshToken(data) {
+  return new Promise<RefreshTokenResult>((resolve, reject) => {
+    refreshTokenApi(data)
+      .then(data => {
+        if (data) {
+          setToken(data.data);
+          resolve(data);
+        }
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
 }
 
 export const http = new PureHttp();

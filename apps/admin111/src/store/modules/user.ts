@@ -5,16 +5,13 @@ import {
   router,
   resetRouter,
   routerArrays,
-  storageLocal
+  storageLocal,
 } from '../utils';
-import {
-  type UserResult,
-  type RefreshTokenResult,
-  getLogin,
-  refreshTokenApi
-} from '@/api/user';
+import { type UserResult, getLogin } from '@/api/user';
 import { useMultiTagsStoreHook } from './multiTags';
-import { type DataInfo, setToken, removeToken, userKey } from '@/utils/auth';
+import { setToken, removeToken } from '@/utils/auth';
+import type { DataInfo } from '@repo/types/user';
+import { userKey } from '@repo/constants/user';
 
 export const useUserStore = defineStore('pure-user', {
   state: (): userType => ({
@@ -32,7 +29,7 @@ export const useUserStore = defineStore('pure-user', {
     // 是否勾选了登录页的免登录
     isRemembered: false,
     // 登录页的免登录存储几天，默认7天
-    loginDay: 7
+    loginDay: 7,
   }),
   actions: {
     /** 存储头像 */
@@ -86,22 +83,7 @@ export const useUserStore = defineStore('pure-user', {
       resetRouter();
       router.push('/login');
     },
-    /** 刷新`token` */
-    async handRefreshToken(data) {
-      return new Promise<RefreshTokenResult>((resolve, reject) => {
-        refreshTokenApi(data)
-          .then(data => {
-            if (data) {
-              setToken(data.data);
-              resolve(data);
-            }
-          })
-          .catch(error => {
-            reject(error);
-          });
-      });
-    }
-  }
+  },
 });
 
 export function useUserStoreHook() {

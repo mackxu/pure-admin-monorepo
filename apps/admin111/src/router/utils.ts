@@ -18,7 +18,8 @@ import {
 } from '@pureadmin/utils';
 import { getConfig } from '@repo/config';
 import { buildHierarchyTree } from './tree';
-import { userKey, type DataInfo } from '@/utils/auth';
+import type { DataInfo } from '@repo/types/user';
+import { userKey } from '@repo/constants/user';
 import { type menuType, routerArrays } from '@/layout/types';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import { usePermissionStoreHook } from '@/store/modules/permission';
