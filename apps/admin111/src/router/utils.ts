@@ -32,7 +32,7 @@ const modulesRoutes1 = import.meta.glob('/src/views/**/*.{vue,tsx}'); // 视图�
 const modulesRoutes = { ...modulesRoutes1, ...pageViews };
 
 // 动态路由
-import { getAsyncRoutes } from '@/api/routes';
+import { getAsyncRoutes } from '@repo/api/routes';
 import { removeToken } from '@repo/utils/token';
 import { useUserStoreHook } from '@repo/store/modules/user';
 

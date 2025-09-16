@@ -29,6 +29,7 @@
     "@page/water": "workspace:*",
     "@repo/constants": "workspace:*",
     "@repo/types": "workspace:*",
+    "@repo/api": "workspace:*",
     "@pureadmin/descriptions": "^1.2.1",
     "@pureadmin/table": "^3.3.0",
     "@pureadmin/utils": "^2.6.2",
