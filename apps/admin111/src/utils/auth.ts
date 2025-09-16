@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { useUserStoreHook } from '@/store/modules/user';
+import { useUserStoreHook } from '@repo/store/modules/user';
 import { storageLocal, isString, isIncludeAllChildren } from '@pureadmin/utils';
 import { multipleTabsKey, TokenKey, userKey } from '@repo/constants/user';
 import type { DataInfo } from '@repo/types/user';

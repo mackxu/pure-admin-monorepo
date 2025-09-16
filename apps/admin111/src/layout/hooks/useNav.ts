@@ -9,7 +9,7 @@ import { useRouter, useRoute } from 'vue-router';
 import { router, remainingPaths } from '@/router';
 import { computed, type CSSProperties } from 'vue';
 import { useAppStoreHook } from '@/store/modules/app';
-import { useUserStoreHook } from '@/store/modules/user';
+import { useUserStoreHook } from '@repo/store/modules/user';
 import { useGlobal, isAllEmpty } from '@pureadmin/utils';
 import { usePermissionStoreHook } from '@/store/modules/permission';
 import ExitFullscreen from '~icons/ri/fullscreen-exit-fill';
