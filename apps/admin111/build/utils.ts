@@ -41,6 +41,7 @@ const alias: Record<string, string> = {
   '@build': pathResolve(),
   '@core/router': pathResolve('../../../packages/core/router/src'),
   '@core/store': pathResolve('../../../packages/core/store/src'),
+  '@repo/store': pathResolve('../../../packages/store/src'),
   '@repo/utils': pathResolve('../../../packages/utils/src'),
   '@repo/config': pathResolve('../../../packages/config/src'),
   '@repo/types': pathResolve('../../../packages/types/src'),
