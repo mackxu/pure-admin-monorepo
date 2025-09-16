@@ -1,16 +1,8 @@
 import Cookies from 'js-cookie';
 import { useUserStoreHook } from '@/store/modules/user';
 import { storageLocal, isString, isIncludeAllChildren } from '@pureadmin/utils';
-import { TokenKey, userKey } from '@repo/constants/user';
+import { multipleTabsKey, TokenKey, userKey } from '@repo/constants/user';
 import type { DataInfo } from '@repo/types/user';
-
-/**
- * 通过`multiple-tabs`是否在`cookie`中，判断用户是否已经登录系统，
- * 从而支持多标签页打开已经登录的系统后无需再登录。
- * 浏览器完全关闭后`multiple-tabs`将自动从`cookie`中销毁，
- * 再次打开浏览器需要重新登录系统
- * */
-export const multipleTabsKey = 'multiple-tabs';
 
 /**
  * @description 设置`token`以及一些必要信息并采用无感刷新`token`方案
@@ -86,13 +78,6 @@ export function setToken(data: DataInfo<Date>) {
       permissions,
     });
   }
-}
-
-/** 删除`token`以及key值为`user-info`的localStorage信息 */
-export function removeToken() {
-  Cookies.remove(TokenKey);
-  Cookies.remove(multipleTabsKey);
-  storageLocal().removeItem(userKey);
 }
 
 /** 是否有按钮级别的权限（根据登录接口返回的`permissions`字段进行判断）*/

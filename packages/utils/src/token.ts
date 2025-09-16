@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { storageLocal } from '@pureadmin/utils';
-import { TokenKey, userKey } from '@repo/constants/user';
+import { TokenKey, userKey, multipleTabsKey } from '@repo/constants/user';
 import type { DataInfo } from '@repo/types/user';
 
 /** 获取`token` */
@@ -15,3 +15,10 @@ export function getToken(): DataInfo<number> {
 export const formatToken = (token: string): string => {
   return 'Bearer ' + token;
 };
+
+/** 删除`token`以及key值为`user-info`的localStorage信息 */
+export function removeToken() {
+  Cookies.remove(TokenKey);
+  Cookies.remove(multipleTabsKey);
+  storageLocal().removeItem(userKey);
+}

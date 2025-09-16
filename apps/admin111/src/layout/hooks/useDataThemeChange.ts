@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { getConfig } from '@repo/config';
 import { useLayout } from './useLayout';
-import { removeToken } from '@/utils/auth';
+import { removeToken } from '@repo/utils/token';
 import { routerArrays } from '@/layout/types';
 import { router, resetRouter } from '@/router';
 import type { themeColorsType } from '../types';

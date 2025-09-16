@@ -1,5 +1,5 @@
 {
-  "name": "@repo/types",
+  "name": "@repo/store",
   "version": "1.0.0",
   "description": "",
   "exports": {
@@ -13,7 +13,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
   "peerDependencies": {
-    "vue": "^3.5.18",
-    "axios": "^1.11.0"
+    "vue": "^3.5.18"
   }
 }

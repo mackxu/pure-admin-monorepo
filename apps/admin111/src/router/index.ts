@@ -24,10 +24,10 @@ import {
   formatFlatteningRoutes,
 } from './utils';
 import type { Router, RouteRecordRaw, RouteComponent } from 'vue-router';
-import { removeToken, multipleTabsKey } from '@/utils/auth';
+import { removeToken } from '@repo/utils/token';
 
 import type { DataInfo } from '@repo/types/user';
-import { userKey } from '@repo/constants/user';
+import { userKey, multipleTabsKey } from '@repo/constants/user';
 
 import { initRouterInstance } from '@core/router';
 

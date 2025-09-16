@@ -38,5 +38,6 @@
     "v-ripple"
   ],
   "vscodeCustomCodeColor.highlightValueColor": "#b392f0",
-  "cSpell.words": ["VITE"]
+  "cSpell.words": ["VITE"],
+  "references.preferredLocation": "view"
 }

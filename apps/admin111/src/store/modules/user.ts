@@ -9,7 +9,8 @@ import {
 } from '../utils';
 import { type UserResult, getLogin } from '@/api/user';
 import { useMultiTagsStoreHook } from './multiTags';
-import { setToken, removeToken } from '@/utils/auth';
+import { setToken } from '@/utils/auth';
+import { removeToken } from '@repo/utils/token';
 import type { DataInfo } from '@repo/types/user';
 import { userKey } from '@repo/constants/user';
 
