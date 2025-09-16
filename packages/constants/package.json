@@ -1,0 +1,19 @@
+{
+  "name": "@repo/constants",
+  "version": "1.0.0",
+  "description": "常量声明",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "xuyadong",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "peerDependencies": {
+    "vue": "^3.5.18",
+     "axios": "^1.11.0"
+  }
+}

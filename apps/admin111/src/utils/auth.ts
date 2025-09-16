@@ -1,28 +1,9 @@
 import Cookies from 'js-cookie';
 import { useUserStoreHook } from '@/store/modules/user';
 import { storageLocal, isString, isIncludeAllChildren } from '@pureadmin/utils';
+import { TokenKey, userKey } from '@repo/constants/user';
+import type { DataInfo } from '@repo/types/user';
 
-export interface DataInfo<T> {
-  /** token */
-  accessToken: string;
-  /** `accessToken`的过期时间（时间戳） */
-  expires: T;
-  /** 用于调用刷新accessToken的接口时所需的token */
-  refreshToken: string;
-  /** 头像 */
-  avatar?: string;
-  /** 用户名 */
-  username?: string;
-  /** 昵称 */
-  nickname?: string;
-  /** 当前登录用户的角色 */
-  roles?: Array<string>;
-  /** 当前登录用户的按钮级别权限 */
-  permissions?: Array<string>;
-}
-
-export const userKey = 'user-info';
-export const TokenKey = 'authorized-token';
 /**
  * 通过`multiple-tabs`是否在`cookie`中，判断用户是否已经登录系统，
  * 从而支持多标签页打开已经登录的系统后无需再登录。
@@ -30,14 +11,6 @@ export const TokenKey = 'authorized-token';
  * 再次打开浏览器需要重新登录系统
  * */
 export const multipleTabsKey = 'multiple-tabs';
-
-/** 获取`token` */
-export function getToken(): DataInfo<number> {
-  // 此处与`TokenKey`相同，此写法解决初始化时`Cookies`中不存在`TokenKey`报错
-  return Cookies.get(TokenKey)
-    ? JSON.parse(Cookies.get(TokenKey))
-    : storageLocal().getItem(userKey);
-}
 
 /**
  * @description 设置`token`以及一些必要信息并采用无感刷新`token`方案
@@ -54,7 +27,7 @@ export function setToken(data: DataInfo<Date>) {
 
   expires > 0
     ? Cookies.set(TokenKey, cookieString, {
-        expires: (expires - Date.now()) / 86400000
+        expires: (expires - Date.now()) / 86400000,
       })
     : Cookies.set(TokenKey, cookieString);
 
@@ -63,7 +36,7 @@ export function setToken(data: DataInfo<Date>) {
     'true',
     isRemembered
       ? {
-          expires: loginDay
+          expires: loginDay,
         }
       : {}
   );
@@ -81,7 +54,7 @@ export function setToken(data: DataInfo<Date>) {
       username,
       nickname,
       roles,
-      permissions
+      permissions,
     });
   }
 
@@ -92,7 +65,7 @@ export function setToken(data: DataInfo<Date>) {
       username,
       nickname: data?.nickname ?? '',
       roles,
-      permissions: data?.permissions ?? []
+      permissions: data?.permissions ?? [],
     });
   } else {
     const avatar =
@@ -110,7 +83,7 @@ export function setToken(data: DataInfo<Date>) {
       username,
       nickname,
       roles,
-      permissions
+      permissions,
     });
   }
 }
@@ -121,11 +94,6 @@ export function removeToken() {
   Cookies.remove(multipleTabsKey);
   storageLocal().removeItem(userKey);
 }
-
-/** 格式化token（jwt格式） */
-export const formatToken = (token: string): string => {
-  return 'Bearer ' + token;
-};
 
 /** 是否有按钮级别的权限（根据登录接口返回的`permissions`字段进行判断）*/
 export const hasPerms = (value: string | Array<string>): boolean => {
