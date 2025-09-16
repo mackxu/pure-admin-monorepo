@@ -1,4 +1,4 @@
-import { hasAuth } from '@/router/utils';
+import { hasAuth } from '@repo/router/utils';
 import type { Directive, DirectiveBinding } from 'vue';
 
 export const auth: Directive = {
@@ -11,5 +11,5 @@ export const auth: Directive = {
         "[Directive: auth]: need auths! Like v-auth=\"['btn.add','btn.edit']\""
       );
     }
-  }
+  },
 };

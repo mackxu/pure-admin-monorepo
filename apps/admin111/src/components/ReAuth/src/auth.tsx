@@ -1,13 +1,13 @@
 import { defineComponent, Fragment } from 'vue';
-import { hasAuth } from '@/router/utils';
+import { hasAuth } from '@repo/router/utils';
 
 export default defineComponent({
   name: 'Auth',
   props: {
     value: {
       type: undefined,
-      default: []
-    }
+      default: [],
+    },
   },
   setup(props, { slots }) {
     return () => {
@@ -16,5 +16,5 @@ export default defineComponent({
         <Fragment>{slots.default?.()}</Fragment>
       ) : null;
     };
-  }
+  },
 });

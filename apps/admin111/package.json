@@ -24,6 +24,7 @@
   "dependencies": {
     "@core/router": "workspace:*",
     "@core/store": "workspace:*",
+    "@repo/router": "workspace:*",
     "@repo/store": "workspace:*",
     "@page/gas": "workspace:*",
     "@page/water": "workspace:*",

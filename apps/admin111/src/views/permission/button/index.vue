@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { hasAuth, getAuths } from '@/router/utils';
+import { hasAuth, getAuths } from '@repo/router/utils';
 
 defineOptions({
-  name: 'PermissionButtonRouter'
+  name: 'PermissionButtonRouter',
 });
 </script>
 
@@ -29,7 +29,7 @@ defineOptions({
           :value="[
             'permission:btn:add',
             'permission:btn:edit',
-            'permission:btn:delete'
+            'permission:btn:delete',
           ]"
         >
           <el-button plain type="danger">
@@ -56,7 +56,7 @@ defineOptions({
             hasAuth([
               'permission:btn:add',
               'permission:btn:edit',
-              'permission:btn:delete'
+              'permission:btn:delete',
             ])
           "
           plain
@@ -85,7 +85,7 @@ defineOptions({
           v-auth="[
             'permission:btn:add',
             'permission:btn:edit',
-            'permission:btn:delete'
+            'permission:btn:delete',
           ]"
           plain
           type="danger"

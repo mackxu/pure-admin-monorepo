@@ -279,6 +279,9 @@ importers:
       '@repo/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@repo/router':
+        specifier: workspace:*
+        version: link:../../packages/router
       '@repo/store':
         specifier: workspace:*
         version: link:../../packages/store
@@ -568,6 +571,12 @@ importers:
 
   packages/router:
     dependencies:
+      '@core/router':
+        specifier: workspace:*
+        version: link:../core/router
+      '@pureadmin/utils':
+        specifier: ^2.6.2
+        version: 2.6.2(echarts@5.6.0)(vue@3.5.21(typescript@5.9.2))
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
