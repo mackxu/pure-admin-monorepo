@@ -1,21 +1,11 @@
 import { defineStore } from 'pinia';
-import {
-  type userType,
-  store,
-  router,
-  resetRouter,
-  routerArrays,
-  storageLocal,
-} from '../utils';
-import { type UserResult, getLogin } from '@/api/user';
-import { useMultiTagsStoreHook } from './multiTags';
-import { setToken } from '@/utils/auth';
-import { removeToken } from '@repo/utils/token';
-import type { DataInfo } from '@repo/types/user';
+import type { DataInfo, UserType } from '@repo/types/user';
 import { userKey } from '@repo/constants/user';
+import { storageLocal } from '@pureadmin/utils';
+import { store } from '@core/store';
 
 export const useUserStore = defineStore('pure-user', {
-  state: (): userType => ({
+  state: (): UserType => ({
     // 头像
     avatar: storageLocal().getItem<DataInfo<number>>(userKey)?.avatar ?? '',
     // 用户名
@@ -60,29 +50,6 @@ export const useUserStore = defineStore('pure-user', {
     /** 设置登录页的免登录存储几天 */
     SET_LOGINDAY(value: number) {
       this.loginDay = Number(value);
-    },
-    /** 登入 */
-    async loginByUsername(data) {
-      return new Promise<UserResult>((resolve, reject) => {
-        getLogin(data)
-          .then(data => {
-            if (data?.success) setToken(data.data);
-            resolve(data);
-          })
-          .catch(error => {
-            reject(error);
-          });
-      });
-    },
-    /** 前端登出（不调用接口） */
-    logOut() {
-      this.username = '';
-      this.roles = [];
-      this.permissions = [];
-      removeToken();
-      useMultiTagsStoreHook().handleTags('equal', [...routerArrays]);
-      resetRouter();
-      router.push('/login');
     },
   },
 });

@@ -2,7 +2,7 @@ import { storeToRefs } from 'pinia';
 import { getConfig } from '@repo/config';
 import { emitter } from '@repo/utils/mitt';
 import Avatar from '@/assets/user.jpg';
-import { getTopMenu } from '@/router/utils';
+import { getTopMenu, userLogout } from '@/router/utils';
 import { useFullscreen } from '@vueuse/core';
 import type { routeMetaType } from '../types';
 import { useRouter, useRoute } from 'vue-router';
@@ -81,7 +81,7 @@ export function useNav() {
 
   /** 退出登录 */
   function logout() {
-    useUserStoreHook().logOut();
+    userLogout();
   }
 
   function backTopMenu() {

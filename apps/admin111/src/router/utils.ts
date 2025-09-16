@@ -5,7 +5,7 @@ import {
   createWebHistory,
   createWebHashHistory,
 } from 'vue-router';
-import { router } from './index';
+import { resetRouter, router } from './index';
 import { isProxy, toRaw } from 'vue';
 import { useTimeoutFn } from '@vueuse/core';
 import {
@@ -33,6 +33,8 @@ const modulesRoutes = { ...modulesRoutes1, ...pageViews };
 
 // 动态路由
 import { getAsyncRoutes } from '@/api/routes';
+import { removeToken } from '@repo/utils/token';
+import { useUserStoreHook } from '@/store/modules/user';
 
 function handRank(routeInfo: any) {
   const { name, path, parentId, meta } = routeInfo;
@@ -427,4 +429,15 @@ export {
   formatTwoStageRoutes,
   formatFlatteningRoutes,
   filterNoPermissionTree,
+};
+
+/** 前端登出（不调用接口） */
+export const userLogout = () => {
+  useUserStoreHook().SET_PERMS([]);
+  useUserStoreHook().SET_ROLES([]);
+  useUserStoreHook().SET_USERNAME('');
+  removeToken();
+  useMultiTagsStoreHook().handleTags('equal', [...routerArrays]);
+  resetRouter();
+  router.push('/login');
 };

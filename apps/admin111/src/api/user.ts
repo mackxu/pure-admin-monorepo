@@ -1,3 +1,4 @@
+import { setToken } from '@/utils/auth';
 import { http } from './http';
 
 export type UserResult = {
@@ -42,4 +43,19 @@ export const getLogin = (data?: object) => {
 /** 刷新`token` */
 export const refreshTokenApi = (data?: object) => {
   return http.request<RefreshTokenResult>('post', '/refresh-token', { data });
+};
+
+// todo: 暂时放在里面，后面抽离
+/** 登入 */
+export const loginByUsername = async data => {
+  return new Promise<UserResult>((resolve, reject) => {
+    getLogin(data)
+      .then(data => {
+        if (data?.success) setToken(data.data);
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
 };

@@ -21,7 +21,6 @@ export {
 export type {
   setType,
   appType,
-  userType,
   multiType,
   cacheType,
   positionType,

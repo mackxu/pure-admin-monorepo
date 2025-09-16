@@ -16,3 +16,13 @@ export interface DataInfo<T> {
   /** 当前登录用户的按钮级别权限 */
   permissions?: Array<string>;
 }
+
+export type UserType = {
+  avatar?: string;
+  username?: string;
+  nickname?: string;
+  roles?: Array<string>;
+  permissions?: Array<string>;
+  isRemembered?: boolean;
+  loginDay?: number;
+};
