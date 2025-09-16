@@ -614,14 +614,7 @@ importers:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
 
-  packages/style:
-    dependencies:
-      axios:
-        specifier: ^1.11.0
-        version: 1.11.0
-      vue:
-        specifier: ^3.5.18
-        version: 3.5.21(typescript@5.9.2)
+  packages/style: {}
 
   packages/types:
     dependencies:
