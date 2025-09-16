@@ -25,6 +25,7 @@
     "@types/nprogress": "^0.2.3",
     "mitt": "^3.0.1",
     "@pureadmin/utils": "^2.6.2",
-    "@vueuse/core": "^13.6.0"
+    "@vueuse/core": "^13.6.0",
+    "responsive-storage": "^2.2.0"
   }
 }

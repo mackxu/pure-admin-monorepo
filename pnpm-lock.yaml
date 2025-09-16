@@ -651,6 +651,9 @@ importers:
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
+      responsive-storage:
+        specifier: ^2.2.0
+        version: 2.2.0
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
