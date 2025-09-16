@@ -4,7 +4,7 @@ import { emitter } from '@repo/utils/mitt';
 import Avatar from '@/assets/user.jpg';
 import { getTopMenu, userLogout } from '@/router/utils';
 import { useFullscreen } from '@vueuse/core';
-import type { routeMetaType } from '../types';
+import type { RouteMetaType } from '../types';
 import { useRouter, useRoute } from 'vue-router';
 import { router, remainingPaths } from '@/router';
 import { computed, type CSSProperties } from 'vue';
@@ -73,7 +73,7 @@ export function useNav() {
   });
 
   /** 动态title */
-  function changeTitle(meta: routeMetaType) {
+  function changeTitle(meta: RouteMetaType) {
     const Title = getConfig().Title;
     if (Title) document.title = `${meta.title} | ${Title}`;
     else document.title = meta.title;

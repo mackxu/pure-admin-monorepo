@@ -2,7 +2,7 @@
 import { emitter } from '@repo/utils/mitt';
 import { RouteConfigs } from '../../types';
 import { useTags } from '../../hooks/useTag';
-import { routerArrays } from '@/layout/types';
+import { routerArrays } from '@repo/utils/router';
 import { onClickOutside } from '@vueuse/core';
 import TagChrome from './components/TagChrome.vue';
 import { handleAliveRoute, getTopMenu } from '@/router/utils';

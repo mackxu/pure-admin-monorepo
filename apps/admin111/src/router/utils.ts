@@ -9,18 +9,17 @@ import { resetRouter, router } from './index';
 import { isProxy, toRaw } from 'vue';
 import { useTimeoutFn } from '@vueuse/core';
 import {
-  isString,
   cloneDeep,
   isAllEmpty,
   intersection,
   storageLocal,
-  isIncludeAllChildren,
 } from '@pureadmin/utils';
 import { getConfig } from '@repo/config';
 import { buildHierarchyTree } from './tree';
 import type { DataInfo } from '@repo/types/user';
 import { userKey } from '@repo/constants/user';
-import { type menuType, routerArrays } from '@/layout/types';
+import { routerArrays } from '@repo/utils/router';
+import type { menuType } from '@/layout/types';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import { usePermissionStoreHook } from '@/store/modules/permission';
 import { pageViews, composePages } from './pages';

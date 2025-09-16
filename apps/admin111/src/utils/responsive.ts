@@ -1,7 +1,7 @@
 // 响应式storage
 import type { App } from 'vue';
 import Storage from 'responsive-storage';
-import { routerArrays } from '@/layout/types';
+import { routerArrays } from '@repo/utils/router';
 import { responsiveStorageNameSpace } from '@repo/config';
 
 export const injectResponsiveStorage = (app: App, config: PlatformConfigs) => {

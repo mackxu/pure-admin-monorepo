@@ -8,13 +8,13 @@ export const routerArrays: Array<RouteConfigs> =
           path: '/welcome',
           meta: {
             title: '首页',
-            icon: 'ep/home-filled'
-          }
-        }
+            icon: 'ep/home-filled',
+          },
+        },
       ]
     : [];
 
-export type routeMetaType = {
+export type RouteMetaType = {
   title?: string;
   icon?: string | FunctionalComponent;
   showLink?: boolean;
@@ -26,7 +26,7 @@ export type RouteConfigs = {
   path?: string;
   query?: object;
   params?: object;
-  meta?: routeMetaType;
+  meta?: RouteMetaType;
   children?: RouteConfigs[];
   name?: string;
 };

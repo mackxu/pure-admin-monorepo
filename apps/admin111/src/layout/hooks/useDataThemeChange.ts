@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import { getConfig } from '@repo/config';
 import { useLayout } from './useLayout';
 import { removeToken } from '@repo/utils/token';
-import { routerArrays } from '@/layout/types';
+import { routerArrays } from '@repo/utils/router';
 import { router, resetRouter } from '@/router';
 import type { themeColorsType } from '../types';
 import { useAppStoreHook } from '@/store/modules/app';

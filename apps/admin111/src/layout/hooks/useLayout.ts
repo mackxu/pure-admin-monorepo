@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { routerArrays } from '../types';
+import { routerArrays } from '@repo/utils/router';
 import { useGlobal } from '@pureadmin/utils';
 import { useMultiTagsStore } from '@/store/modules/multiTags';
 
@@ -23,7 +23,7 @@ export function useLayout() {
         sidebarStatus: $config?.SidebarStatus ?? true,
         epThemeColor: $config?.EpThemeColor ?? '#409EFF',
         themeColor: $config?.Theme ?? 'light',
-        overallStyle: $config?.OverallStyle ?? 'light'
+        overallStyle: $config?.OverallStyle ?? 'light',
       };
     }
     /** 灰色模式、色弱模式、隐藏标签页 */
@@ -36,7 +36,7 @@ export function useLayout() {
         showLogo: $config?.ShowLogo ?? true,
         showModel: $config?.ShowModel ?? 'smart',
         multiTagsCache: $config?.MultiTagsCache ?? false,
-        stretch: $config?.Stretch ?? false
+        stretch: $config?.Stretch ?? false,
       };
     }
   };
@@ -53,6 +53,6 @@ export function useLayout() {
   return {
     layout,
     layoutTheme,
-    initStorage
+    initStorage,
   };
 }

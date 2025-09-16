@@ -1,5 +1,4 @@
 export { store } from '@core/store';
-export { routerArrays } from '@/layout/types';
 export { router, resetRouter, constantMenus } from '@/router';
 export { getConfig, responsiveStorageNameSpace } from '@repo/config';
 export {
@@ -7,7 +6,8 @@ export {
   filterTree,
   filterNoPermissionTree,
   formatFlatteningRoutes,
-} from '@/router/utils';
+  routerArrays,
+} from '@repo/utils/router';
 export {
   isUrl,
   isEqual,
