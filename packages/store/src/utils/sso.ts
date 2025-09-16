@@ -1,7 +1,7 @@
 import type { DataInfo } from '@repo/types/user';
-import { setToken } from '@repo/store/utils/auth';
 import { subBefore, getQueryMap } from '@pureadmin/utils';
 import { removeToken } from '@repo/utils/token';
+import { setToken } from '../utils/auth';
 
 /**
  * 简版前端单点登录，根据实际业务自行编写，平台启动后本地可以跳后面这个链接进行测试 http://localhost:8848/#/permission/page/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin
