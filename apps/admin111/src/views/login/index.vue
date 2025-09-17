@@ -5,13 +5,14 @@ import { message } from '@repo/utils/message';
 import { loginRules } from './utils/rule';
 import { ref, reactive, toRaw } from 'vue';
 import { debounce } from '@pureadmin/utils';
-import { useNav } from '@/layout/hooks/useNav';
 import { useEventListener } from '@vueuse/core';
 import type { FormInstance } from 'element-plus';
-import { useLayout } from '@/layout/hooks/useLayout';
-import { initRouter, getTopMenu } from '@/router/utils';
 import { bg, avatar, illustration } from './utils/static';
 import { useRenderIcon } from '@repo/components/ReIcon/src/hooks';
+
+import { initRouter, getTopMenu } from '@/router/utils';
+import { useLayout } from '@/layout/hooks/useLayout';
+import { useNav } from '@/layout/hooks/useNav';
 import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';
 
 import dayIcon from '@repo/assets/svg/day.svg?component';
