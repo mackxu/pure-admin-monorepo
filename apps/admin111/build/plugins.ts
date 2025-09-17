@@ -30,7 +30,7 @@ export function getPluginsList(
      */
     codeInspectorPlugin({
       bundler: 'vite',
-      hideConsole: true
+      hideConsole: true,
     }),
     viteBuildInfo(),
     /**
@@ -44,21 +44,23 @@ export function getPluginsList(
       logger: false,
       include: 'mock',
       infixName: false,
-      enableProd: true
+      enableProd: true,
     }),
     // svg组件化支持
     svgLoader(),
     // 自动按需加载图标
     Icons({
       compiler: 'vue3',
-      scale: 1
+      scale: 1,
     }),
     configCompressPlugin(VITE_COMPRESSION),
     // 线上环境删除console
-    removeConsole({ external: ['src/assets/iconfont/iconfont.js'] }),
+    removeConsole({
+      external: ['../../../packages/assets/src/iconfont/iconfont.js'],
+    }),
     // 打包分析
     lifecycle === 'report'
       ? visualizer({ open: true, brotliSize: true, filename: 'report.html' })
-      : (null as any)
+      : (null as any),
   ];
 }

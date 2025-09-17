@@ -1,7 +1,7 @@
 import { storeToRefs } from 'pinia';
 import { getConfig } from '@repo/config';
 import { emitter } from '@repo/utils/mitt';
-import Avatar from '@/assets/user.jpg';
+import Avatar from '@repo/assets/user.jpg';
 import { getTopMenu, userLogout } from '@/router/utils';
 import { useFullscreen } from '@vueuse/core';
 import type { RouteMetaType } from '../types';

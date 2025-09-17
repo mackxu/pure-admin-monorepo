@@ -14,13 +14,13 @@ import {
   computed,
   onMounted,
   onBeforeMount,
-  defineComponent
+  defineComponent,
 } from 'vue';
 import {
   useDark,
   useGlobal,
   deviceDetection,
-  useResizeObserver
+  useResizeObserver,
 } from '@pureadmin/utils';
 
 import LayTag from './components/lay-tag/index.vue';
@@ -29,7 +29,7 @@ import LayContent from './components/lay-content/index.vue';
 import LaySetting from './components/lay-setting/index.vue';
 import NavVertical from './components/lay-sidebar/NavVertical.vue';
 import NavHorizontal from './components/lay-sidebar/NavHorizontal.vue';
-import BackTopIcon from '@/assets/svg/back_top.svg?component';
+import BackTopIcon from '@repo/assets/svg/back_top.svg?component';
 
 const appWrapperRef = ref();
 const { isDark } = useDark();
@@ -56,13 +56,13 @@ const set: setType = reactive({
       hideSidebar: !set.sidebar.opened,
       openSidebar: set.sidebar.opened,
       withoutAnimation: set.sidebar.withoutAnimation,
-      mobile: set.device === 'mobile'
+      mobile: set.device === 'mobile',
     };
   }),
 
   hideTabs: computed(() => {
     return $storage?.configure.hideTabs;
-  })
+  }),
 });
 
 function setTheme(layoutModel: string) {
@@ -74,7 +74,7 @@ function setTheme(layoutModel: string) {
     sidebarStatus: $storage.layout?.sidebarStatus,
     epThemeColor: $storage.layout?.epThemeColor,
     themeColor: $storage.layout?.themeColor,
-    overallStyle: $storage.layout?.overallStyle
+    overallStyle: $storage.layout?.overallStyle,
   };
 }
 
@@ -136,8 +136,8 @@ const LayHeader = defineComponent({
             ? isDark.value
               ? 'box-shadow: 0 1px 4px #0d0d0d'
               : 'box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08)'
-            : ''
-        ]
+            : '',
+        ],
       },
       {
         default: () => [
@@ -148,11 +148,11 @@ const LayHeader = defineComponent({
           !pureSetting.hiddenSideBar && layout.value.includes('horizontal')
             ? h(NavHorizontal)
             : null,
-          h(LayTag)
-        ]
+          h(LayTag),
+        ],
       }
     );
-  }
+  },
 });
 </script>
 
@@ -176,7 +176,7 @@ const LayHeader = defineComponent({
     <div
       :class="[
         'main-container',
-        pureSetting.hiddenSideBar ? 'main-hidden' : ''
+        pureSetting.hiddenSideBar ? 'main-hidden' : '',
       ]"
     >
       <div v-if="set.fixedHeader">

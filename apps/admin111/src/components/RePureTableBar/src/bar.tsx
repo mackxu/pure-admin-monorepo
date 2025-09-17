@@ -7,47 +7,47 @@ import {
   computed,
   nextTick,
   defineComponent,
-  getCurrentInstance
+  getCurrentInstance,
 } from 'vue';
 import {
   delay,
   cloneDeep,
   isBoolean,
   isFunction,
-  getKeyList
+  getKeyList,
 } from '@pureadmin/utils';
 
 import Fullscreen from '~icons/ri/fullscreen-fill';
 import ExitFullscreen from '~icons/ri/fullscreen-exit-fill';
-import DragIcon from '@/assets/table-bar/drag.svg?component';
-import ExpandIcon from '@/assets/table-bar/expand.svg?component';
-import RefreshIcon from '@/assets/table-bar/refresh.svg?component';
-import SettingIcon from '@/assets/table-bar/settings.svg?component';
-import CollapseIcon from '@/assets/table-bar/collapse.svg?component';
+import DragIcon from '@repo/assets/table-bar/drag.svg?component';
+import ExpandIcon from '@repo/assets/table-bar/expand.svg?component';
+import RefreshIcon from '@repo/assets/table-bar/refresh.svg?component';
+import SettingIcon from '@repo/assets/table-bar/settings.svg?component';
+import CollapseIcon from '@repo/assets/table-bar/collapse.svg?component';
 
 const props = {
   /** 头部最左边的标题 */
   title: {
     type: String,
-    default: '列表'
+    default: '列表',
   },
   /** 对于树形表格，如果想启用展开和折叠功能，传入当前表格的ref即可 */
   tableRef: {
-    type: Object as PropType<any>
+    type: Object as PropType<any>,
   },
   /** 需要展示的列 */
   columns: {
     type: Array as PropType<TableColumnList>,
-    default: () => []
+    default: () => [],
   },
   isExpandAll: {
     type: Boolean,
-    default: true
+    default: true,
   },
   tableKey: {
     type: [String, Number] as PropType<string | number>,
-    default: '0'
-  }
+    default: '0',
+  },
 };
 
 export default defineComponent({
@@ -76,7 +76,7 @@ export default defineComponent({
         return {
           background:
             s === size.value ? useEpThemeStoreHook().epThemeColor : '',
-          color: s === size.value ? '#fff' : 'var(--el-text-color-primary)'
+          color: s === size.value ? '#fff' : 'var(--el-text-color-primary)',
         };
       };
     });
@@ -88,7 +88,7 @@ export default defineComponent({
         'duration-100',
         'hover:text-primary!',
         'cursor-pointer',
-        'outline-hidden'
+        'outline-hidden',
       ];
     });
 
@@ -101,7 +101,7 @@ export default defineComponent({
         'border-b-[1px]',
         'border-solid',
         'border-[#dcdfe6]',
-        'dark:border-[#303030]'
+        'dark:border-[#303030]',
       ];
     });
 
@@ -181,7 +181,7 @@ export default defineComponent({
             紧凑
           </el-dropdown-item>
         </el-dropdown-menu>
-      )
+      ),
     };
 
     /** 列展示拖拽排序 */
@@ -214,7 +214,7 @@ export default defineComponent({
             }
             const currentRow = dynamicColumns.value.splice(oldIndex, 1)[0];
             dynamicColumns.value.splice(newIndex, 0, currentRow);
-          }
+          },
         });
       });
     };
@@ -232,7 +232,7 @@ export default defineComponent({
         offset: [0, 18],
         duration: [300, 0],
         followCursor: true,
-        hideOnClick: 'toggle'
+        hideOnClick: 'toggle',
       };
     };
 
@@ -242,7 +242,7 @@ export default defineComponent({
           class={['w-[16px]', iconClass.value]}
           v-tippy={rendTippyProps('列设置')}
         />
-      )
+      ),
     };
 
     return () => (
@@ -256,7 +256,7 @@ export default defineComponent({
             'bg-bg_color',
             isFullscreen.value
               ? ['h-full!', 'z-2002', 'fixed', 'inset-0']
-              : 'mt-2'
+              : 'mt-2',
           ]}
         >
           <div class="flex justify-between w-full h-[60px] p-4">
@@ -274,7 +274,7 @@ export default defineComponent({
                   <ExpandIcon
                     class={['w-[16px]', iconClass.value]}
                     style={{
-                      transform: isExpandAll.value ? 'none' : 'rotate(-90deg)'
+                      transform: isExpandAll.value ? 'none' : 'rotate(-90deg)',
                     }}
                     v-tippy={rendTippyProps(
                       isExpandAll.value ? '折叠' : '展开'
@@ -288,7 +288,7 @@ export default defineComponent({
                 class={[
                   'w-[16px]',
                   iconClass.value,
-                  loading.value ? 'animate-spin' : ''
+                  loading.value ? 'animate-spin' : '',
                 ]}
                 v-tippy={rendTippyProps('刷新')}
                 onClick={() => onReFresh()}
@@ -343,7 +343,7 @@ export default defineComponent({
                                   'drag-btn w-[16px] mr-2',
                                   isFixedColumn(item)
                                     ? 'cursor-no-drop!'
-                                    : 'cursor-grab!'
+                                    : 'cursor-grab!',
                                 ]}
                                 onMouseenter={(event: {
                                   preventDefault: () => void;
@@ -384,10 +384,10 @@ export default defineComponent({
           </div>
           {slots.default({
             size: size.value,
-            dynamicColumns: dynamicColumns.value
+            dynamicColumns: dynamicColumns.value,
           })}
         </div>
       </>
     );
-  }
+  },
 });

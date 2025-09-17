@@ -24,10 +24,11 @@
   "dependencies": {
     "@core/router": "workspace:*",
     "@core/store": "workspace:*",
-    "@repo/router": "workspace:*",
-    "@repo/store": "workspace:*",
     "@page/gas": "workspace:*",
     "@page/water": "workspace:*",
+    "@repo/router": "workspace:*",
+    "@repo/store": "workspace:*",
+    "@repo/assets": "workspace:*",
     "@repo/constants": "workspace:*",
     "@repo/types": "workspace:*",
     "@repo/api": "workspace:*",

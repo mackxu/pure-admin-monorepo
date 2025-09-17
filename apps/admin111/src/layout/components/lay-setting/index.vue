@@ -21,9 +21,9 @@ import { useDark, useGlobal, debounce, isNumber } from '@pureadmin/utils';
 import Check from '~icons/ep/check';
 import LeftArrow from '~icons/ri/arrow-left-s-line?width=20&height=20';
 import RightArrow from '~icons/ri/arrow-right-s-line?width=20&height=20';
-import DayIcon from '@/assets/svg/day.svg?component';
-import DarkIcon from '@/assets/svg/dark.svg?component';
-import SystemIcon from '@/assets/svg/system.svg?component';
+import DayIcon from '@repo/assets/svg/day.svg?component';
+import DarkIcon from '@repo/assets/svg/dark.svg?component';
+import SystemIcon from '@repo/assets/svg/system.svg?component';
 
 const { device } = useNav();
 const { isDark } = useDark();

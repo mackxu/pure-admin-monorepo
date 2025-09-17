@@ -14,8 +14,8 @@ import { bg, avatar, illustration } from './utils/static';
 import { useRenderIcon } from '@/components/ReIcon/src/hooks';
 import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';
 
-import dayIcon from '@/assets/svg/day.svg?component';
-import darkIcon from '@/assets/svg/dark.svg?component';
+import dayIcon from '@repo/assets/svg/day.svg?component';
+import darkIcon from '@repo/assets/svg/dark.svg?component';
 import Lock from '~icons/ri/lock-fill';
 import User from '~icons/ri/user-3-fill';
 import { loginByUsername } from '@repo/api/user';

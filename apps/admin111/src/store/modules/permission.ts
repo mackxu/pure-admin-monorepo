@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { constantMenus } from '@/router';
 import {
   type cacheType,
   store,
@@ -6,9 +7,8 @@ import {
   ascending,
   getKeyList,
   filterTree,
-  constantMenus,
   filterNoPermissionTree,
-  formatFlatteningRoutes
+  formatFlatteningRoutes,
 } from '../utils';
 import { useMultiTagsStoreHook } from './multiTags';
 
@@ -21,7 +21,7 @@ export const usePermissionStore = defineStore('pure-permission', {
     // 整体路由（一维数组格式）
     flatteningRoutes: [],
     // 缓存页面keepAlive
-    cachePageList: []
+    cachePageList: [],
   }),
   actions: {
     /** 组装整体路由生成的菜单 */
@@ -65,8 +65,8 @@ export const usePermissionStore = defineStore('pure-permission', {
     clearAllCachePage() {
       this.wholeMenus = [];
       this.cachePageList = [];
-    }
-  }
+    },
+  },
 });
 
 export function usePermissionStoreHook() {
