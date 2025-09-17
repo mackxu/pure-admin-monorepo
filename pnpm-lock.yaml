@@ -111,6 +111,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.11
         version: 4.1.13(vite@7.1.5(@types/node@20.19.13)(jiti@2.5.1)(lightningcss@1.30.1)(sass@1.92.1)(yaml@2.8.1))
+      '@trivago/prettier-plugin-sort-imports':
+        specifier: ^5.2.2
+        version: 5.2.2(@vue/compiler-sfc@3.5.21)(prettier@3.6.2)
       '@types/js-cookie':
         specifier: ^3.0.6
         version: 3.0.6
@@ -258,6 +261,9 @@ importers:
       '@core/store':
         specifier: workspace:*
         version: link:../../packages/core/store
+      '@page/base':
+        specifier: workspace:*
+        version: link:../../pages/base
       '@page/gas':
         specifier: workspace:*
         version: link:../../pages/gas
@@ -288,6 +294,9 @@ importers:
       '@repo/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@repo/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
       '@repo/router':
         specifier: workspace:*
         version: link:../../packages/router
@@ -601,6 +610,12 @@ importers:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
 
+  packages/hooks:
+    dependencies:
+      vue:
+        specifier: ^3.5.18
+        version: 3.5.21(typescript@5.9.2)
+
   packages/router:
     dependencies:
       '@core/router':
@@ -705,6 +720,18 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.21(typescript@5.9.2))
 
+  pages/base:
+    dependencies:
+      '@core/router':
+        specifier: workspace:*
+        version: link:../../packages/core/router
+      '@repo/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      vue:
+        specifier: ^3.5.18
+        version: 3.5.21(typescript@5.9.2)
+
   pages/gas:
     dependencies:
       '@core/router':
@@ -739,6 +766,9 @@ importers:
       '@repo/directives':
         specifier: workspace:*
         version: link:../packages/directives
+      element-plus:
+        specifier: ^2.10.4
+        version: 2.11.2(vue@3.5.21(typescript@5.9.2))
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.9.2)
@@ -1750,6 +1780,22 @@ packages:
     resolution: {integrity: sha512-0PmqLQ010N58SbMTJ7BVJ4I2xopiQn/5i6nlb4JmxzQf8zcS5+m2Cv6tqh+sfDwtIdjoEnOvwsGQ1hkUi8QEHQ==}
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
+
+  '@trivago/prettier-plugin-sort-imports@5.2.2':
+    resolution: {integrity: sha512-fYDQA9e6yTNmA13TLVSA+WMQRc5Bn/c0EUBditUHNfMMxN7M82c38b1kEggVE3pLpZ0FwkwJkUEKMiOi52JXFA==}
+    engines: {node: '>18.12'}
+    peerDependencies:
+      '@vue/compiler-sfc': 3.x
+      prettier: 2.x - 3.x
+      prettier-plugin-svelte: 3.x
+      svelte: 4.x || 5.x
+    peerDependenciesMeta:
+      '@vue/compiler-sfc':
+        optional: true
+      prettier-plugin-svelte:
+        optional: true
+      svelte:
+        optional: true
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -2874,6 +2920,9 @@ packages:
   jackspeak@4.1.1:
     resolution: {integrity: sha512-zptv57P3GpL+O0I7VdMJNBZCu+BPHVQUk55Ft8/QCJjTVxrnJHuVuX/0Bl2A6/+2oyR/ZMEuFKwmzqqZ/U5nPQ==}
     engines: {node: 20 || >=22}
+
+  javascript-natural-sort@0.7.1:
+    resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
 
   jiti@2.5.1:
     resolution: {integrity: sha512-twQoecYPiVA5K/h6SxtORw/Bs3ar+mLUtoPSc7iMXzQzK8d7eJ/R09wmTwAjiamETn1cXYPGfNnu7DMoHgu12w==}
@@ -5227,6 +5276,20 @@ snapshots:
       tailwindcss: 4.1.13
       vite: 7.1.5(@types/node@20.19.13)(jiti@2.5.1)(lightningcss@1.30.1)(sass@1.92.1)(yaml@2.8.1)
 
+  '@trivago/prettier-plugin-sort-imports@5.2.2(@vue/compiler-sfc@3.5.21)(prettier@3.6.2)':
+    dependencies:
+      '@babel/generator': 7.28.3
+      '@babel/parser': 7.28.4
+      '@babel/traverse': 7.28.4
+      '@babel/types': 7.28.4
+      javascript-natural-sort: 0.7.1
+      lodash: 4.17.21
+      prettier: 3.6.2
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.5.21
+    transitivePeerDependencies:
+      - supports-color
+
   '@trysound/sax@0.2.0': {}
 
   '@types/conventional-commits-parser@5.0.1':
@@ -6522,6 +6585,8 @@ snapshots:
   jackspeak@4.1.1:
     dependencies:
       '@isaacs/cliui': 8.0.2
+
+  javascript-natural-sort@0.7.1: {}
 
   jiti@2.5.1: {}
 

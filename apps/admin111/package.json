@@ -24,6 +24,7 @@
   "dependencies": {
     "@core/router": "workspace:*",
     "@core/store": "workspace:*",
+    "@page/base": "workspace:*",
     "@page/gas": "workspace:*",
     "@page/water": "workspace:*",
     "@repo/router": "workspace:*",
@@ -36,6 +37,7 @@
     "@repo/config": "workspace:*",
     "@repo/utils": "workspace:*",
     "@repo/components": "workspace:*",
+    "@repo/hooks": "workspace:*",
     "@pureadmin/descriptions": "^1.2.1",
     "@pureadmin/table": "^3.3.0",
     "@pureadmin/utils": "^2.6.2",

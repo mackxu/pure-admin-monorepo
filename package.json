@@ -42,9 +42,11 @@
     "@eslint/js": "^9.32.0",
     "@faker-js/faker": "^9.9.0",
     "@glb/types": "workspace:*",
+    "@glb/types-shared": "workspace:*",
     "@iconify/json": "^2.2.364",
     "@iconify/vue": "4.2.0",
     "@tailwindcss/vite": "^4.1.11",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.19.9",
     "@types/nprogress": "^0.2.3",
@@ -90,8 +92,7 @@
     "vite-plugin-router-warn": "^1.0.0",
     "vite-svg-loader": "^5.1.0",
     "vue-eslint-parser": "^10.2.0",
-    "vue-tsc": "^3.0.4",
-    "@glb/types-shared": "workspace:*"
+    "vue-tsc": "^3.0.4"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0",

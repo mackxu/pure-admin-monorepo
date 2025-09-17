@@ -1,13 +1,15 @@
+import { computed, type CSSProperties } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useRouter, useRoute } from 'vue-router';
 import { getConfig } from '@repo/config';
 import { emitter } from '@repo/utils/mitt';
 import Avatar from '@repo/assets/user.jpg';
-import { getTopMenu, userLogout } from '@/router/utils';
 import { useFullscreen } from '@vueuse/core';
 import type { RouteMetaType } from '../types';
-import { useRouter, useRoute } from 'vue-router';
+
 import { router, remainingPaths } from '@/router';
-import { computed, type CSSProperties } from 'vue';
+import { getTopMenu, userLogout } from '@/router/utils';
+
 import { useAppStoreHook } from '@repo/store/modules/app';
 import { useUserStoreHook } from '@repo/store/modules/user';
 import { useGlobal, isAllEmpty } from '@pureadmin/utils';
