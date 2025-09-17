@@ -1,0 +1,21 @@
+{
+  "name": "@glb/types-shared",
+  "version": "1.0.0",
+  "description": "",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "xuyadong",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "peerDependencies": {
+    "vue": "^3.5.18",
+    "element-plus": "^2.10.4"
+  },
+  "dependencies": {
+    "@repo/components": "workspace:*",
+    "@repo/directives": "workspace:*"
+  }
+}
