@@ -7,7 +7,7 @@ import { useTags } from '@/layout/hooks/useTag';
 import { useGlobal, isNumber } from '@pureadmin/utils';
 import BackTopIcon from '@repo/assets/svg/back_top.svg?component';
 
-import { usePermissionStoreHook } from '@/store/modules/permission';
+import { usePermissionStoreHook } from '@repo/store/modules/permission';
 
 const props = defineProps({
   fixedHeader: Boolean,

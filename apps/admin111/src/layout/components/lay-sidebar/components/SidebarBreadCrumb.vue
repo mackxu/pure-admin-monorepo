@@ -3,7 +3,7 @@ import { isEqual } from '@pureadmin/utils';
 import { useRoute, useRouter } from 'vue-router';
 import { ref, watch, onMounted, toRaw } from 'vue';
 import { getParentPaths, findRouteByPath } from '@/router/utils';
-import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
+import { useMultiTagsStoreHook } from '@repo/store/modules/multiTags';
 
 const route = useRoute();
 const levelList = ref([]);
@@ -72,12 +72,12 @@ const handleLink = item => {
       if (item.query) {
         router.push({
           name,
-          query: item.query
+          query: item.query,
         });
       } else if (item.params) {
         router.push({
           name,
-          params: item.params
+          params: item.params,
         });
       } else {
         router.push({ name });
@@ -98,7 +98,7 @@ watch(
     getBreadcrumb();
   },
   {
-    deep: true
+    deep: true,
   }
 );
 </script>

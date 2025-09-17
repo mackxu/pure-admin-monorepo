@@ -13,7 +13,7 @@ import { getTopMenu, userLogout } from '@/router/utils';
 import { useAppStoreHook } from '@repo/store/modules/app';
 import { useUserStoreHook } from '@repo/store/modules/user';
 import { useGlobal, isAllEmpty } from '@pureadmin/utils';
-import { usePermissionStoreHook } from '@/store/modules/permission';
+import { usePermissionStoreHook } from '@repo/store/modules/permission';
 import ExitFullscreen from '~icons/ri/fullscreen-exit-fill';
 import Fullscreen from '~icons/ri/fullscreen-fill';
 

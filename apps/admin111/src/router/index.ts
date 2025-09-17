@@ -5,8 +5,8 @@ import NProgress from '@repo/utils/progress';
 
 import { buildHierarchyTree } from './tree';
 import remainingRouter from './modules/remaining';
-import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
-import { usePermissionStoreHook } from '@/store/modules/permission';
+import { useMultiTagsStoreHook } from '@repo/store/modules/multiTags';
+import { usePermissionStoreHook } from '@repo/store/modules/permission';
 import {
   isUrl,
   openLink,

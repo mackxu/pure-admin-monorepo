@@ -5,7 +5,7 @@ import { useNav } from '@/layout/hooks/useNav';
 import { responsiveStorageNameSpace } from '@repo/config';
 import { storageLocal, isAllEmpty } from '@pureadmin/utils';
 import { findRouteByPath, getParentPaths } from '@/router/utils';
-import { usePermissionStoreHook } from '@/store/modules/permission';
+import { usePermissionStoreHook } from '@repo/store/modules/permission';
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import LaySidebarLogo from '../lay-sidebar/components/SidebarLogo.vue';
 import LaySidebarItem from '../lay-sidebar/components/SidebarItem.vue';

@@ -6,7 +6,7 @@ import { routerArrays } from '@repo/utils/router';
 import { useAppStoreHook } from '@repo/store/modules/app';
 import { useEpThemeStoreHook } from '@repo/store/modules/epTheme';
 
-import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
+import { useMultiTagsStoreHook } from '@repo/store/modules/multiTags';
 import { router, resetRouter } from '@/router';
 
 import type { themeColorsType } from '../types';

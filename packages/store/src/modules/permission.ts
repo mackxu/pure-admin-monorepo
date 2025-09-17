@@ -9,13 +9,14 @@ import {
 } from '@repo/utils/router';
 import type { cacheType } from '@repo/store/types';
 
-import { constantMenus } from '@/router';
+// todo: constantMenus
+// import { constantMenus } from '@/router';
 import { useMultiTagsStoreHook } from './multiTags';
 
 export const usePermissionStore = defineStore('pure-permission', {
   state: () => ({
     // 静态路由生成的菜单
-    constantMenus,
+    constantMenus: [],
     // 整体路由生成的菜单（静态、动态）
     wholeMenus: [],
     // 整体路由（一维数组格式）

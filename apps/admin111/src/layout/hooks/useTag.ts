@@ -20,7 +20,7 @@ import {
   hasClass,
 } from '@pureadmin/utils';
 
-import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
+import { useMultiTagsStoreHook } from '@repo/store/modules/multiTags';
 import type { tagsViewsType } from '../types';
 
 import Fullscreen from '~icons/ri/fullscreen-fill';

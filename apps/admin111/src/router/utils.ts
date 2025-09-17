@@ -26,8 +26,8 @@ import { useUserStoreHook } from '@repo/store/modules/user';
 import { buildHierarchyTree } from './tree';
 import { resetRouter, router } from './index';
 import type { menuType } from '@/layout/types';
-import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
-import { usePermissionStoreHook } from '@/store/modules/permission';
+import { useMultiTagsStoreHook } from '@repo/store/modules/multiTags';
+import { usePermissionStoreHook } from '@repo/store/modules/permission';
 import { pageViews, composePages } from './pages';
 
 const IFrame = () => import('@/layout/frame.vue');
