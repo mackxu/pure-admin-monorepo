@@ -2,11 +2,11 @@
 import { getConfig } from '@repo/config';
 import { posix } from 'path-browserify';
 import { menuType } from '@/layout/types';
-import { ReText } from '@/components/ReText';
+import { ReText } from '@repo/components/ReText';
 import { useNav } from '@/layout/hooks/useNav';
 import SidebarLinkItem from './SidebarLinkItem.vue';
 import SidebarExtraIcon from './SidebarExtraIcon.vue';
-import { useRenderIcon } from '@/components/ReIcon/src/hooks';
+import { useRenderIcon } from '@repo/components/ReIcon/src/hooks';
 import {
   type PropType,
   type CSSProperties,

@@ -14,7 +14,7 @@ import LayPanel from '../lay-panel/index.vue';
 import { useNav } from '@/layout/hooks/useNav';
 import { useAppStoreHook } from '@repo/store/modules/app';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
-import Segmented, { type OptionsType } from '@/components/ReSegmented';
+import Segmented, { type OptionsType } from '@repo/components/ReSegmented';
 import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';
 import { useDark, useGlobal, debounce, isNumber } from '@pureadmin/utils';
 

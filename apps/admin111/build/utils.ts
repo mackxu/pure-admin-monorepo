@@ -47,6 +47,7 @@ const alias: Record<string, string> = {
   '@repo/config': pathResolve('../../../packages/config/src'),
   '@repo/types': pathResolve('../../../packages/types/src'),
   '@repo/constants': pathResolve('../../../packages/constants/src'),
+  '@repo/components': pathResolve('../../../packages/components/src'),
   '@repo/api': pathResolve('../../../packages/api/src'),
   '@repo/directive': pathResolve('../../../packages/directives/src'),
   '@repo/style': pathResolve('../../../packages/style/src'),

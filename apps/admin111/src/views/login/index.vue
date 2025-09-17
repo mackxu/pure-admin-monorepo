@@ -11,7 +11,7 @@ import type { FormInstance } from 'element-plus';
 import { useLayout } from '@/layout/hooks/useLayout';
 import { initRouter, getTopMenu } from '@/router/utils';
 import { bg, avatar, illustration } from './utils/static';
-import { useRenderIcon } from '@/components/ReIcon/src/hooks';
+import { useRenderIcon } from '@repo/components/ReIcon/src/hooks';
 import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';
 
 import dayIcon from '@repo/assets/svg/day.svg?component';

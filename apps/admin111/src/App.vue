@@ -8,19 +8,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { ElConfigProvider } from 'element-plus';
-import { ReDialog } from '@/components/ReDialog';
+import { ReDialog } from '@repo/components/ReDialog';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 
 export default defineComponent({
   name: 'app',
   components: {
     [ElConfigProvider.name]: ElConfigProvider,
-    ReDialog
+    ReDialog,
   },
   computed: {
     currentLocale() {
       return zhCn;
-    }
-  }
+    },
+  },
 });
 </script>

@@ -16,6 +16,8 @@
 }
 ```
 
+在主包内，配置tsconfig和vite.config.ts搭配使用
+
 ## subpath imports语法
 
 包内别名，必须以#开头
@@ -37,3 +39,5 @@
   }
 }
 ```
+
+tsconfig.json 需要配置`baseUrl`和`paths`
