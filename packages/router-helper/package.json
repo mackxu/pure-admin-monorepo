@@ -1,12 +1,8 @@
 {
-  "name": "@repo/store",
+  "name": "@repo/router-helper",
   "version": "1.0.0",
   "description": "",
-  "exports": {
-    "./*": "./src/*.ts",
-    "./modules/*": "./src/modules/*.ts",
-    "./utils/*": "./src/utils/*.ts"
-  },
+  "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,12 +12,13 @@
   "packageManager": "pnpm@10.14.0",
   "peerDependencies": {
     "vue": "^3.5.18",
-    "pinia": "^3.0.3"
+    "axios": "^1.11.0"
   },
   "dependencies": {
     "@repo/constants": "workspace:*",
+    "@repo/types": "workspace:*",
     "@repo/utils": "workspace:*",
-    "@repo/config": "workspace:*",
-    "@repo/types": "workspace:*"
+    "@page/gas": "workspace:*",
+    "@page/water": "workspace:*"
   }
 }

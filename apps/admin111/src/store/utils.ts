@@ -1,5 +1,5 @@
 export { store } from '@core/store';
-export { router, resetRouter, constantMenus } from '@/router';
+export { constantMenus } from '@/router';
 export { getConfig, responsiveStorageNameSpace } from '@repo/config';
 export {
   ascending,
