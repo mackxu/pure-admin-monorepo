@@ -10,7 +10,7 @@ import {
 import type { tagsViewsType } from '../types';
 import { useRoute, useRouter } from 'vue-router';
 import { responsiveStorageNameSpace } from '@repo/config';
-import { useSettingStoreHook } from '@/store/modules/settings';
+import { useSettingStoreHook } from '@repo/store/modules/settings';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import {
   isEqual,

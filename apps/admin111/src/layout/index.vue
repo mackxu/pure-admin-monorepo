@@ -4,8 +4,8 @@ import 'animate.css';
 import '@/components/ReIcon/src/offlineIcon';
 import { setType } from './types';
 import { useLayout } from './hooks/useLayout';
-import { useAppStoreHook } from '@/store/modules/app';
-import { useSettingStoreHook } from '@/store/modules/settings';
+import { useAppStoreHook } from '@repo/store/modules/app';
+import { useSettingStoreHook } from '@repo/store/modules/settings';
 import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';
 import {
   h,

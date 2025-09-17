@@ -12,7 +12,7 @@ import {
 import { emitter } from '@repo/utils/mitt';
 import LayPanel from '../lay-panel/index.vue';
 import { useNav } from '@/layout/hooks/useNav';
-import { useAppStoreHook } from '@/store/modules/app';
+import { useAppStoreHook } from '@repo/store/modules/app';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import Segmented, { type OptionsType } from '@/components/ReSegmented';
 import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';

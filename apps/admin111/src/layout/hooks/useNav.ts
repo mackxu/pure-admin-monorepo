@@ -8,7 +8,7 @@ import type { RouteMetaType } from '../types';
 import { useRouter, useRoute } from 'vue-router';
 import { router, remainingPaths } from '@/router';
 import { computed, type CSSProperties } from 'vue';
-import { useAppStoreHook } from '@/store/modules/app';
+import { useAppStoreHook } from '@repo/store/modules/app';
 import { useUserStoreHook } from '@repo/store/modules/user';
 import { useGlobal, isAllEmpty } from '@pureadmin/utils';
 import { usePermissionStoreHook } from '@/store/modules/permission';
