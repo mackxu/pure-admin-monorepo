@@ -99,6 +99,9 @@ importers:
       '@glb/types':
         specifier: workspace:*
         version: link:types
+      '@glb/types-shared':
+        specifier: workspace:*
+        version: link:types-shared
       '@iconify/json':
         specifier: ^2.2.364
         version: 2.2.382
@@ -727,6 +730,18 @@ importers:
         version: 3.5.21(typescript@5.9.2)
 
   types: {}
+
+  types-shared:
+    dependencies:
+      '@repo/components':
+        specifier: workspace:*
+        version: link:../packages/components
+      '@repo/directives':
+        specifier: workspace:*
+        version: link:../packages/directives
+      vue:
+        specifier: ^3.5.18
+        version: 3.5.21(typescript@5.9.2)
 
 packages:
 

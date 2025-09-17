@@ -39,7 +39,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "types/*.d.ts",
     "vite.config.ts",
     "../../packages/store/src/utils/sso.ts"
   ],

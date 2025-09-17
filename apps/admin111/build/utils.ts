@@ -49,7 +49,7 @@ const alias: Record<string, string> = {
   '@repo/constants': pathResolve('../../../packages/constants/src'),
   '@repo/components': pathResolve('../../../packages/components/src'),
   '@repo/api': pathResolve('../../../packages/api/src'),
-  '@repo/directive': pathResolve('../../../packages/directives/src'),
+  '@repo/directives': pathResolve('../../../packages/directives/src'),
   '@repo/style': pathResolve('../../../packages/style/src'),
   '@page/gas': pathResolve('../../../pages/gas/src'),
   '@page/water': pathResolve('../../../pages/water/src'),

@@ -25,7 +25,7 @@ import '@repo/assets/iconfont/iconfont.css';
 const app = createApp(App);
 
 // 自定义指令
-import * as directives from '@repo/directive';
+import * as directives from '@repo/directives';
 
 Object.keys(directives).forEach(key => {
   app.directive(key, (directives as { [key: string]: Directive })[key]);

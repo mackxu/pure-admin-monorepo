@@ -25,7 +25,8 @@
       "@pureadmin/table/volar",
       "unplugin-icons/types/vue",
       "@pureadmin/descriptions/volar",
-      "@glb/types"
+      "@glb/types",
+      "@glb/types-shared"
     ]
   }
 }
