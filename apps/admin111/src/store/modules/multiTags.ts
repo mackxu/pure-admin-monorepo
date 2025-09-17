@@ -1,17 +1,16 @@
 import { defineStore } from 'pinia';
+import { store } from '@core/store';
 import {
-  type multiType,
-  type positionType,
-  store,
   isUrl,
   isEqual,
   isNumber,
   isBoolean,
-  getConfig,
-  routerArrays,
   storageLocal,
-  responsiveStorageNameSpace
-} from '../utils';
+} from '@pureadmin/utils';
+import type { multiType, positionType } from '@repo/store/types';
+import { getConfig, responsiveStorageNameSpace } from '@repo/config';
+import { routerArrays } from '@repo/utils/router';
+
 import { usePermissionStoreHook } from './permission';
 
 export const useMultiTagsStore = defineStore('pure-multiTags', {
@@ -27,16 +26,16 @@ export const useMultiTagsStore = defineStore('pure-multiTags', {
           ...routerArrays,
           ...usePermissionStoreHook().flatteningRoutes.filter(
             v => v?.meta?.fixedTag
-          )
+          ),
         ] as any),
     multiTagsCache: storageLocal().getItem<StorageConfigs>(
       `${responsiveStorageNameSpace()}configure`
-    )?.multiTagsCache
+    )?.multiTagsCache,
   }),
   getters: {
     getMultiTagsCache(state) {
       return state.multiTagsCache;
-    }
+    },
   },
   actions: {
     multiTagsCacheChange(multiTagsCache: boolean) {
@@ -136,8 +135,8 @@ export const useMultiTagsStore = defineStore('pure-multiTags', {
         case 'slice':
           return this.multiTags.slice(-1);
       }
-    }
-  }
+    },
+  },
 });
 
 export function useMultiTagsStoreHook() {

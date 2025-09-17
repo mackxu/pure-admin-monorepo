@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia';
-import { constantMenus } from '@/router';
+import { store } from '@core/store';
+import { debounce, getKeyList } from '@pureadmin/utils';
 import {
-  type cacheType,
-  store,
-  debounce,
   ascending,
-  getKeyList,
   filterTree,
   filterNoPermissionTree,
   formatFlatteningRoutes,
-} from '../utils';
+} from '@repo/utils/router';
+import type { cacheType } from '@repo/store/types';
+
+import { constantMenus } from '@/router';
 import { useMultiTagsStoreHook } from './multiTags';
 
 export const usePermissionStore = defineStore('pure-permission', {

@@ -5,7 +5,6 @@ import {
   createWebHistory,
   createWebHashHistory,
 } from 'vue-router';
-import { resetRouter, router } from './index';
 import { isProxy, toRaw } from 'vue';
 import { useTimeoutFn } from '@vueuse/core';
 import {
@@ -15,26 +14,28 @@ import {
   storageLocal,
 } from '@pureadmin/utils';
 import { getConfig } from '@repo/config';
-import { buildHierarchyTree } from './tree';
 import type { DataInfo } from '@repo/types/user';
 import { userKey } from '@repo/constants/user';
 import { routerArrays } from '@repo/utils/router';
 
+// 动态路由
+import { getAsyncRoutes } from '@repo/api/routes';
+import { removeToken } from '@repo/utils/token';
+import { useUserStoreHook } from '@repo/store/modules/user';
+
+import { buildHierarchyTree } from './tree';
+import { resetRouter, router } from './index';
 import type { menuType } from '@/layout/types';
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
 import { usePermissionStoreHook } from '@/store/modules/permission';
 import { pageViews, composePages } from './pages';
 
 const IFrame = () => import('@/layout/frame.vue');
+
 // https://cn.vitejs.dev/guide/features.html#glob-import
 const modulesRoutes1 = import.meta.glob('/src/views/**/*.{vue,tsx}'); // 视图列表，用于匹配接口下发的路由
 
 const modulesRoutes = { ...modulesRoutes1, ...pageViews };
-
-// 动态路由
-import { getAsyncRoutes } from '@repo/api/routes';
-import { removeToken } from '@repo/utils/token';
-import { useUserStoreHook } from '@repo/store/modules/user';
 
 function handRank(routeInfo: any) {
   const { name, path, parentId, meta } = routeInfo;

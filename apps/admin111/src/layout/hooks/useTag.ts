@@ -7,11 +7,11 @@ import {
   type CSSProperties,
   getCurrentInstance,
 } from 'vue';
-import type { tagsViewsType } from '../types';
+
 import { useRoute, useRouter } from 'vue-router';
 import { responsiveStorageNameSpace } from '@repo/config';
 import { useSettingStoreHook } from '@repo/store/modules/settings';
-import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
+
 import {
   isEqual,
   isBoolean,
@@ -19,6 +19,9 @@ import {
   toggleClass,
   hasClass,
 } from '@pureadmin/utils';
+
+import { useMultiTagsStoreHook } from '@/store/modules/multiTags';
+import type { tagsViewsType } from '../types';
 
 import Fullscreen from '~icons/ri/fullscreen-fill';
 import CloseAllTags from '~icons/ri/subtract-line';

@@ -76,24 +76,6 @@ export const remainingPaths = Object.keys(remainingRouter).map(v => {
 export const router = initRouterInstance(
   constantRoutes.concat(...(remainingRouter as any))
 );
-// export const router: Router = createRouter({
-//   history: createWebHashHistory(''),
-//   routes: constantRoutes.concat(...(remainingRouter as any)),
-//   strict: true,
-//   scrollBehavior(to, from, savedPosition) {
-//     return new Promise(resolve => {
-//       if (savedPosition) {
-//         return savedPosition;
-//       } else {
-//         if (from.meta.saveSrollTop) {
-//           const top: number =
-//             document.documentElement.scrollTop || document.body.scrollTop;
-//           resolve({ left: 0, top });
-//         }
-//       }
-//     });
-//   }
-// });
 
 /** 重置路由 */
 export function resetRouter() {

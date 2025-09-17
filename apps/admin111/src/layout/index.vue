@@ -2,11 +2,10 @@
 import 'animate.css';
 // 引入 src/components/ReIcon/src/offlineIcon.ts 文件中所有使用addIcon添加过的本地图标
 import '@repo/components/ReIcon/src/offlineIcon';
-import { setType } from './types';
-import { useLayout } from './hooks/useLayout';
+
 import { useAppStoreHook } from '@repo/store/modules/app';
 import { useSettingStoreHook } from '@repo/store/modules/settings';
-import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange';
+
 import {
   h,
   ref,
@@ -30,6 +29,10 @@ import LaySetting from './components/lay-setting/index.vue';
 import NavVertical from './components/lay-sidebar/NavVertical.vue';
 import NavHorizontal from './components/lay-sidebar/NavHorizontal.vue';
 import BackTopIcon from '@repo/assets/svg/back_top.svg?component';
+
+import { setType } from './types';
+import { useLayout } from './hooks/useLayout';
+import { useDataThemeChange } from './hooks/useDataThemeChange';
 
 const appWrapperRef = ref();
 const { isDark } = useDark();
