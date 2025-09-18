@@ -1,8 +1,13 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true
+    "strict": false,
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["src/*"],
+      "@repo/components/*": ["../../packages/components/src/*"],
+      "@repo/assets/*": ["../../packages/assets/src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.vue"]
 }

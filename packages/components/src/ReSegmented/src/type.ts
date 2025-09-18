@@ -1,5 +1,6 @@
 import type { VNode, Component } from 'vue';
-import type { iconType } from '#/ReIcon/src/types';
+
+import type { iconType } from '../../ReIcon/src/types';
 
 export interface OptionsType {
   /** 文字 */

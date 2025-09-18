@@ -1,6 +1,3 @@
-import './index.css';
-import type { OptionsType } from './type';
-import { useRenderIcon } from '#/ReIcon/src/hooks';
 import {
   useDark,
   isNumber,
@@ -17,6 +14,10 @@ import {
   defineComponent,
   getCurrentInstance,
 } from 'vue';
+
+import { useRenderIcon } from '../../ReIcon/src/hooks';
+import './index.css';
+import type { OptionsType } from './type';
 
 const props = {
   options: {

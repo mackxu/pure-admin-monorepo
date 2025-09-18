@@ -1,16 +1,17 @@
+import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
-import { viteBuildInfo } from './info';
-import svgLoader from 'vite-svg-loader';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import { codeInspectorPlugin } from 'code-inspector-plugin';
+import { visualizer } from 'rollup-plugin-visualizer';
 import Icons from 'unplugin-icons/vite';
 import type { PluginOption } from 'vite';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import tailwindcss from '@tailwindcss/vite';
-import { configCompressPlugin } from './compress';
-import removeNoMatch from 'vite-plugin-router-warn';
-import { visualizer } from 'rollup-plugin-visualizer';
-import removeConsole from 'vite-plugin-remove-console';
-import { codeInspectorPlugin } from 'code-inspector-plugin';
 import { vitePluginFakeServer } from 'vite-plugin-fake-server';
+import removeConsole from 'vite-plugin-remove-console';
+import removeNoMatch from 'vite-plugin-router-warn';
+import svgLoader from 'vite-svg-loader';
+
+import { configCompressPlugin } from './compress';
+import { viteBuildInfo } from './info';
 
 export function getPluginsList(
   VITE_CDN: boolean,

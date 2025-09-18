@@ -1,8 +1,9 @@
+import { sum, formatBytes } from '@pureadmin/utils';
 import dayjs from 'dayjs';
 import { readdir, stat } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { sum, formatBytes } from '@pureadmin/utils';
+import { fileURLToPath } from 'node:url';
+
 import {
   name,
   version,
@@ -37,7 +38,6 @@ const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
 
 /** 设置别名 */
 const alias: Record<string, string> = {
-  '@': pathResolve('../src'),
   '@build': pathResolve(),
   '@core/router': pathResolve('../../../packages/core/router/src'),
   '@core/store': pathResolve('../../../packages/core/store/src'),
@@ -52,9 +52,11 @@ const alias: Record<string, string> = {
   '@repo/directives': pathResolve('../../../packages/directives/src'),
   '@repo/style': pathResolve('../../../packages/style/src'),
   '@repo/hooks': pathResolve('../../../packages/hooks/src'),
+  '@page/multi': pathResolve('../../../pages/multi/src'),
   '@page/base': pathResolve('../../../pages/base/src'),
   '@page/gas': pathResolve('../../../pages/gas/src'),
   '@page/water': pathResolve('../../../pages/water/src'),
+  // '#': pathResolve('../../../packages/base/src'),
 };
 
 /** 平台的名称、版本、运行所需的`node`和`pnpm`版本、依赖、最后构建时间的类型提示 */

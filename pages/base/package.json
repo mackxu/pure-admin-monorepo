@@ -5,11 +5,10 @@
   "main": "index.js",
   "type": "module",
   "exports": {
-    "./router": "./src/router/index.ts",
-    "./views/*": "./src/views/*"
+    "./*": "./src/*"
   },
   "imports": {
-    "#*": "./src/*"
+    "#/*": "./src/*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,11 +17,45 @@
   "author": "xuyadong",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
-  "peerDependencies": {
-    "vue": "^3.5.18"
-  },
   "dependencies": {
     "@core/router": "workspace:*",
-    "@repo/components": "workspace:*"
+    "@core/store": "workspace:*",
+    "@page/gas": "workspace:*",
+    "@page/water": "workspace:*",
+    "@repo/router": "workspace:*",
+    "@repo/store": "workspace:*",
+    "@repo/assets": "workspace:*",
+    "@repo/constants": "workspace:*",
+    "@repo/types": "workspace:*",
+    "@repo/api": "workspace:*",
+    "@repo/style": "workspace:*",
+    "@repo/config": "workspace:*",
+    "@repo/utils": "workspace:*",
+    "@repo/components": "workspace:*",
+    "@repo/hooks": "workspace:*",
+    "@pureadmin/descriptions": "^1.2.1",
+    "@pureadmin/table": "^3.3.0",
+    "@pureadmin/utils": "^2.6.2",
+    "@vueuse/core": "^13.6.0",
+    "@vueuse/motion": "^3.0.3",
+    "animate.css": "^4.1.1",
+    "axios": "^1.11.0",
+    "dayjs": "^1.11.13",
+    "echarts": "^5.6.0",
+    "element-plus": "^2.10.4",
+    "js-cookie": "^3.0.5",
+    "localforage": "^1.10.0",
+    "mitt": "^3.0.1",
+    "nprogress": "^0.2.0",
+    "path-browserify": "^1.0.1",
+    "pinia": "^3.0.3",
+    "pinyin-pro": "^3.26.0",
+    "qs": "^6.14.0",
+    "responsive-storage": "^2.2.0",
+    "sortablejs": "^1.15.6",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1",
+    "vue-tippy": "^6.7.1",
+    "vue-types": "^6.0.0"
   }
 }

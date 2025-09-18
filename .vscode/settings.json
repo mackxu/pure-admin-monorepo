@@ -39,5 +39,6 @@
   ],
   "vscodeCustomCodeColor.highlightValueColor": "#b392f0",
   "cSpell.words": ["pureadmin", "VITE"],
-  "references.preferredLocation": "view"
+  "references.preferredLocation": "view",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
