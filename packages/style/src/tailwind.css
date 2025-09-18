@@ -44,3 +44,7 @@
 @utility navbar-bg-hover {
   @apply dark:text-white dark:hover:bg-[#242424]!;
 }
+
+/* 设置tailwind检测文件 */
+@source '../../components';
+@source '../../../pages';
