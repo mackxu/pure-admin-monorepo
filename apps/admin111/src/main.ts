@@ -25,8 +25,6 @@ import { getPlatformConfig } from '@repo/config';
 // 自定义指令
 import * as directives from '@repo/directives';
 
-import '@page/multi';
-
 // 获得路由实例
 
 // import PureDescriptions from "@pureadmin/descriptions";

@@ -1,13 +1,14 @@
-import { defineStore } from 'pinia';
-import { store } from '@core/store';
 import { debounce, getKeyList } from '@pureadmin/utils';
+import { defineStore } from 'pinia';
+
+import { store } from '@core/store';
+import type { cacheType } from '@repo/store/types';
 import {
   ascending,
   filterTree,
   filterNoPermissionTree,
   formatFlatteningRoutes,
 } from '@repo/utils/router';
-import type { cacheType } from '@repo/store/types';
 
 // todo: constantMenus
 // import { constantMenus } from '@/router';
@@ -66,6 +67,9 @@ export const usePermissionStore = defineStore('pure-permission', {
     clearAllCachePage() {
       this.wholeMenus = [];
       this.cachePageList = [];
+    },
+    SET_CONSTANT_MENUS(constantMenus: any) {
+      this.constantMenus = constantMenus;
     },
   },
 });

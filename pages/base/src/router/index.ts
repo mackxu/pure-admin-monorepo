@@ -75,6 +75,8 @@ export const router = initRouterInstance(
   constantRoutes.concat(...(remainingRouter as any))
 );
 
+usePermissionStoreHook().SET_CONSTANT_MENUS(constantMenus);
+
 /** 重置路由 */
 export function resetRouter() {
   router.clearRoutes();
