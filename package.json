@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:app": "pnpm --filter admin111 run dev"
+    "dev:app": "pnpm --filter admin111 run dev",
+    "graph": "turbo-graph"
   },
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
@@ -55,6 +56,7 @@
     "@types/sortablejs": "^1.15.8",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "@yeger/turbo-graph": "^2.3.4",
     "boxen": "^8.0.1",
     "code-inspector-plugin": "^1.0.3",
     "cssnano": "^7.1.0",
