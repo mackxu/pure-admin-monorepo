@@ -41,3 +41,11 @@
 ```
 
 tsconfig.json 需要配置`baseUrl`和`paths`
+
+## catalog
+
+安装依赖
+
+```bash
+pnpm add vue --filter @page/water --save-catalog
+```
