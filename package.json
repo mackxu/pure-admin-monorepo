@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:app": "pnpm --filter admin111 run dev",
+    "dev": "pnpm --filter admin111 run dev",
+    "build": "pnpm --filter admin111 run build",
     "graph": "turbo-graph"
   },
   "packageManager": "pnpm@10.14.0",
