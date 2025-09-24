@@ -15,10 +15,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "pnpm@10.14.0",
-  "peerDependencies": {
-    "vue": "^3.5.18"
-  },
   "dependencies": {
+    "vue": "catalog:",
     "@core/router": "workspace:*",
     "@repo/components": "workspace:*"
   }

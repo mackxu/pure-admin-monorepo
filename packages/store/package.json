@@ -14,11 +14,9 @@
   "author": "xuyadong",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
-  "peerDependencies": {
-    "vue": "^3.5.18",
-    "pinia": "^3.0.3"
-  },
   "dependencies": {
+    "vue": "catalog:",
+    "pinia": "catalog:",
     "@repo/constants": "workspace:*",
     "@repo/utils": "workspace:*",
     "@repo/config": "workspace:*",

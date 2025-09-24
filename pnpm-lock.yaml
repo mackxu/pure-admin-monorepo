@@ -785,10 +785,10 @@ importers:
   packages/api:
     dependencies:
       axios:
-        specifier: ^1.11.0
+        specifier: 'catalog:'
         version: 1.11.0
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/assets: {}
@@ -796,31 +796,31 @@ importers:
   packages/components:
     dependencies:
       '@pureadmin/utils':
-        specifier: ^2.6.2
+        specifier: 'catalog:'
         version: 2.6.2(echarts@5.6.0)(vue@3.5.21(typescript@5.9.2))
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
       vue-tippy:
-        specifier: ^6.7.1
+        specifier: 'catalog:'
         version: 6.7.1(vue@3.5.21(typescript@5.9.2))
 
   packages/config:
     dependencies:
       axios:
-        specifier: ^1.11.0
+        specifier: 'catalog:'
         version: 1.11.0
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/constants:
     dependencies:
       axios:
-        specifier: ^1.11.0
+        specifier: 'catalog:'
         version: 1.11.0
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/core/router:
@@ -832,16 +832,16 @@ importers:
   packages/core/store:
     dependencies:
       pinia:
-        specifier: ^3.0.3
+        specifier: 'catalog:'
         version: 3.0.3(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/directives:
     dependencies:
       '@pureadmin/utils':
-        specifier: ^2.6.2
+        specifier: 'catalog:'
         version: 2.6.2(echarts@5.6.0)(vue@3.5.21(typescript@5.9.2))
       '@repo/store':
         specifier: workspace:*
@@ -850,16 +850,16 @@ importers:
         specifier: workspace:*
         version: link:../utils
       '@vueuse/core':
-        specifier: ^13.6.0
+        specifier: 'catalog:'
         version: 13.9.0(vue@3.5.21(typescript@5.9.2))
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/hooks:
     dependencies:
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/router:
@@ -868,10 +868,10 @@ importers:
         specifier: workspace:*
         version: link:../core/router
       '@pureadmin/utils':
-        specifier: ^2.6.2
+        specifier: 'catalog:'
         version: 2.6.2(echarts@5.6.0)(vue@3.5.21(typescript@5.9.2))
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/store:
@@ -889,10 +889,10 @@ importers:
         specifier: workspace:*
         version: link:../utils
       pinia:
-        specifier: ^3.0.3
+        specifier: 'catalog:'
         version: 3.0.3(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/style: {}
@@ -900,16 +900,16 @@ importers:
   packages/types:
     dependencies:
       axios:
-        specifier: ^1.11.0
+        specifier: 'catalog:'
         version: 1.11.0
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   packages/utils:
     dependencies:
       '@pureadmin/utils':
-        specifier: ^2.6.2
+        specifier: 'catalog:'
         version: 2.6.2(echarts@5.6.0)(vue@3.5.21(typescript@5.9.2))
       '@repo/constants':
         specifier: workspace:*
@@ -918,28 +918,28 @@ importers:
         specifier: workspace:*
         version: link:../types
       '@types/nprogress':
-        specifier: ^0.2.3
+        specifier: 'catalog:'
         version: 0.2.3
       '@vueuse/core':
-        specifier: ^13.6.0
+        specifier: 'catalog:'
         version: 13.9.0(vue@3.5.21(typescript@5.9.2))
       localforage:
-        specifier: ^1.10.0
+        specifier: 'catalog:'
         version: 1.10.0
       mitt:
-        specifier: ^3.0.1
+        specifier: 'catalog:'
         version: 3.0.1
       nprogress:
-        specifier: ^0.2.0
+        specifier: 'catalog:'
         version: 0.2.0
       responsive-storage:
-        specifier: ^2.2.0
+        specifier: 'catalog:'
         version: 2.2.0
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
       vue-router:
-        specifier: ^4.5.1
+        specifier: 'catalog:'
         version: 4.5.1(vue@3.5.21(typescript@5.9.2))
 
   pages/base:
@@ -1071,7 +1071,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/components
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   pages/water:
@@ -1083,7 +1083,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/components
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
   types: {}
@@ -1097,10 +1097,10 @@ importers:
         specifier: workspace:*
         version: link:../packages/directives
       element-plus:
-        specifier: ^2.10.4
+        specifier: 'catalog:'
         version: 2.11.2(vue@3.5.21(typescript@5.9.2))
       vue:
-        specifier: ^3.5.18
+        specifier: 'catalog:'
         version: 3.5.21(typescript@5.9.2)
 
 packages:
